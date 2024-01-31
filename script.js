@@ -3,3 +3,6 @@
 function redirect() {
   window.location.href = "https://thevoidnexus.github.io/database/";
 }
+function redirect2() {
+  window.location.href = "https://thevoidnexus.github.io/calculator/";
+}
