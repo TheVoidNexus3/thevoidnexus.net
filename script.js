@@ -8,12 +8,16 @@ function redirect2() {
 }
 
 //
-let money = 0
 
-window.onload = loaded(); {
-money = localStorage.getItem(money);
-update();
+let money;
+
+function loaded() {
+  money = localStorage.getItem(savedMoney);
+  alert(money);
 }
+
+window.onload = loaded();
+window.onload = update();
 
 function update() {
   let Info = document.getElementById(`Info`)
