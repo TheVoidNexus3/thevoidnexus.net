@@ -33,7 +33,7 @@ function clicker() {
 function clickerUpgrade() {
   if (money >= upgradeMoney) {
     money -= upgradeMoney;
-    MPS *= 2;
+    if(MPS != 0) {MPS *= 2} else {MPS += 1};
     upgradeMoney *= 1.5;
 
     localStorage.setItem(savedMoney, money);
