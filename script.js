@@ -22,7 +22,8 @@ function update() {
 }
 
 function clicker() {
-  money += MPS;
+  if(MPS != 0) {
+    money += MPS} else {money += 1}
   update();
   localStorage.setItem(savedMoney, money);
 }
