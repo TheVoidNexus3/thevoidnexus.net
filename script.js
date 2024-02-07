@@ -9,15 +9,12 @@ function redirect2() {
 
 //
 
-let money;
-
-function loaded() {
-  money = localStorage.getItem(savedMoney);
-  alert(money);
-}
-
-window.onload = loaded();
-window.onload = update();
+let money = localStorage.getItem(savedMoney);
+if(money == null) {money = 0};
+let upgradeMoney = localStorage.getItem(savedUpgrade);
+if(upgradeMoney == null) {upgradeMoney = 10};
+let MPS = localStorage.getItem(savedMPS);
+if(MPS == null) {MPS = 0}
 
 function update() {
   let Info = document.getElementById(`Info`)
@@ -25,7 +22,25 @@ function update() {
 }
 
 function clicker() {
-money += 1;
+money += MPS;
 update();
-localStorage.setItem(money, money);
+localStorage.setItem(savedMoney, money);
 }
+
+function clickerUpgrade() {
+  if(money >= upgradeMoney) {
+    money -= upgradeMoney;
+    MPS *= 2;
+    upgradeMoney *= 1.5;
+
+    localStorage.setItem(savedMoney, money);
+    localStorage.setItem(savedUpgrade, upgradeMoney);
+    localStorage.setItem(savedMPS, MPS);
+
+    alert(`Successfully upgraded! Money per second: $${MPS}`);
+  }
+}
+
+setInterval(function() {
+  money += MPS;
+}, 1000);
