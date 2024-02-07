@@ -18,7 +18,9 @@ let MPS = parseInt(localStorage.getItem(savedMPS)) || 0;
 
 function update() {
   let Info = document.getElementById(`Info`);
-  Info.innerHTML = `You currently have $${money}.`;
+  let Button2 = document.getElementById(`Button2`)
+  Info.innerHTML = `You currently have $${money}. Money per second: ${MPS}`;
+  Button2.innerHTML = `Upgrade<br>Cost: ${upgradeMoney}`
 }
 
 function clicker() {
@@ -38,7 +40,7 @@ function clickerUpgrade() {
     localStorage.setItem(savedUpgrade, upgradeMoney);
     localStorage.setItem(savedMPS, MPS);
 
-    alert(`Successfully upgraded! Money per second: $${MPS}`);
+    alert(`Successfully upgraded!`);
   }
 }
 
