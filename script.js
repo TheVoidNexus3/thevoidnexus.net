@@ -69,6 +69,9 @@ function gameReset() {
   upgradeMoney = 10;
   upgradeMoney2 = 10;
   totalClicks = 0;
+  alert("Your progress has been resetted.")
+  } else {
+    alert("You cancelled the reset.")
   }
 }
 
