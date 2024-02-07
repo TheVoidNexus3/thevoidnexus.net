@@ -10,7 +10,7 @@
     font-size: 150%;
 }
 .Button1 {
-    width: 500px;
+    width: 62%;
     height: 75px;
     font-size: 25px;
     display: block;
@@ -18,7 +18,7 @@
 }
 
 .Button2 {
-    width: 500px;
+    width: 62%;
     height: 75px;
     font-size: 25px;
     display: block;
@@ -37,7 +37,7 @@
     font-size: 14px;
     font-weight: bold;
     color: rgb(179, 8, 8);
-    width: 160px;
+    width: 22%;
     height: 40px;
     display: block;
     margin: 0 auto;
@@ -57,7 +57,7 @@
 }
 
 .database {
-    width: 150px;
+    width: 18.5%;
     height: 40px;
     display: block;
     margin: 0 auto;
@@ -68,7 +68,7 @@
 }
 
 .calculator {
-    width: 150px;
+    width: 18.5%;
     height: 40px;
     display: block;
     margin: 0 auto;
