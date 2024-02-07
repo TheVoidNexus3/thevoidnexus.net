@@ -1,21 +1,83 @@
 .ClickerTitle {
-    font-size: 35px;
+    font-size: 200%;
+    text-align: center;
+    color: rgb(145, 13, 112);
+    text-decoration: underline;
 }
 
+.Info {
+    text-align: center;
+    font-size: 150%;
+}
 .Button1 {
     width: 500px;
     height: 75px;
     font-size: 25px;
+    display: block;
+    margin: 0 auto;
 }
 
 .Button2 {
     width: 500px;
     height: 75px;
     font-size: 25px;
+    display: block;
+    margin: 0 auto;
 }
 
 .Button3 {
     width: 500px;
     height: 75px;
     font-size: 25px;
+    display: block;
+    margin: 0 auto;
+}
+
+.ResetButton {
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(179, 8, 8);
+    width: 160px;
+    height: 40px;
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+    border-style: dotted;
+}
+.ResetButton:hover {
+    background-color: rgb(184, 1, 1);
+    color: rgb(255, 255, 255);
+    border-color: white;
+}
+
+.Other {
+    font-size: 135%;
+    text-decoration: underline;
+    text-align: center;
+}
+
+.database {
+    width: 150px;
+    height: 40px;
+    display: block;
+    margin: 0 auto;
+    border: 1px;
+}
+.database:hover {
+    background-color: gainsboro;
+}
+
+.calculator {
+    width: 150px;
+    height: 40px;
+    display: block;
+    margin: 0 auto;
+    border-style: dotted;
+    border-color: gray;
+    border-bottom: 1px;
+    border-left: 1px;
+    border-right: 1px;
+}
+.calculator:hover {
+    background-color: gainsboro;
 }
