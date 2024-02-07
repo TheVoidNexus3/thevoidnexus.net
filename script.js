@@ -36,9 +36,10 @@ function clickerUpgrade() {
   if (money >= upgradeMoney) {
     money -= upgradeMoney;
     if(MPS != 0) {MPS *= 2} else {MPS += 1};
-    upgradeMoney *= 1.75;
+    upgradeMoney *= 2.25;
     upgradeMoney = Math.round(upgradeMoney);
-
+    money = Math.round(money);
+    
     localStorage.setItem(savedMoney, money);
     localStorage.setItem(savedUpgrade, upgradeMoney);
     localStorage.setItem(savedMPS, MPS);
