@@ -18,14 +18,16 @@ let MPS = parseInt(localStorage.getItem(savedMPS)) || 0;
 
 function update() {
   let Info = document.getElementById(`Info`);
+  let Button1 = document.getElementById(`Button1`)
   let Button2 = document.getElementById(`Button2`)
-  Info.innerHTML = `You currently have $${money}. Money per second: ${MPS}`;
-  Button2.innerHTML = `Upgrade<br>Cost: ${upgradeMoney}`
+  Info.innerHTML = `You currently have $${money}. Money per second: $${MPS}`;
+  Button1.innerHTML = `Earn Money<br>Money per click: $${MPS}`
+  Button2.innerHTML = `Upgrade<br>Cost: $${upgradeMoney}`
 }
 
 function clicker() {
   if(MPS != 0) {
-    money += MPS} else {money += 1}
+   money += MPS} else {money += 1}
   update();
   localStorage.setItem(savedMoney, money);
 }
@@ -34,7 +36,8 @@ function clickerUpgrade() {
   if (money >= upgradeMoney) {
     money -= upgradeMoney;
     if(MPS != 0) {MPS *= 2} else {MPS += 1};
-    upgradeMoney *= 1.5;
+    upgradeMoney *= 1.75;
+    upgradeMoney = Math.round(upgradeMoney);
 
     localStorage.setItem(savedMoney, money);
     localStorage.setItem(savedUpgrade, upgradeMoney);
