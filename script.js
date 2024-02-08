@@ -27,7 +27,7 @@ function update() {
   let Button1 = document.getElementById(`Button1`)
   let Button2 = document.getElementById(`Button2`)
   let Button3 = document.getElementById(`Button3`)
-  Info.innerHTML = `Balance: $${money}.<br>Per second: $${MPS}.<br>Per click: $${MPC}`;
+  Info.innerHTML = `Balance: $${money}<br>Per second: $${MPS}<br>Per click: $${MPC}`;
   Button1.innerHTML = `Earn Money<br>Total clicks: ${totalClicks}`
   Button2.innerHTML = `Money per Second<br>Cost: $${upgradeMoney}`
   Button3.innerHTML = `Money per Click<br>Cost: $${upgradeMoney2}`
