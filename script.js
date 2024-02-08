@@ -58,6 +58,7 @@ function clickerUpgrade2() {
     upgradeMoney2 *= 2;
     upgradeMoney2 = Math.round(upgradeMoney2);
     money = Math.round(money);
+    MPC = Math.round(MPC);
   }
 }
 
