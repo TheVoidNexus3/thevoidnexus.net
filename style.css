@@ -11,38 +11,38 @@
 }
 .Button1 {
     width: 50%;
-    height: 75px;
+    height: 100%;
     font-size: 25px;
     display: block;
     margin: 0 auto;
 }
 .Button1:hover {
     background-color: gainsboro;
-    border-style: hidden;
+    border-style: dotted;
 }
 
 .Button2 {
     width: 50%;
-    height: 75px;
+    height: 100%;
     font-size: 25px;
     display: block;
     margin: 0 auto;
 }
 .Button2:hover {
     background-color: gainsboro;
-    border-style: hidden;
+    border-style: dotted;
 }
 
 .Button3 {
     width: 50%;
-    height: 75px;
+    height: 100%;
     font-size: 25px;
     display: block;
     margin: 0 auto;
 }
 .Button3:hover {
     background-color: gainsboro;
-    border-style: hidden;
+    border-style: dotted;
 }
 
 .ResetButton {
@@ -50,7 +50,7 @@
     font-weight: bold;
     color: rgb(179, 8, 8);
     width: 25%;
-    height: 40px;
+    height: 100%;
     display: block;
     margin: 0 auto;
     border-color: red;

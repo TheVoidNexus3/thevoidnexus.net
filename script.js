@@ -1,4 +1,4 @@
-// Created by TheVoidNexus on 31.01.2024 | Updated: 07.02.2024
+// Created by TheVoidNexus on 31.01.2024 | Updated: 08.02.2024
 
 const savedMoney = "savedMoney";
 const savedUpgrade = "savedUpgrade";
@@ -29,8 +29,8 @@ function update() {
   let Button3 = document.getElementById(`Button3`)
   Info.innerHTML = `Balance: $${money}.<br>Per second: $${MPS}.<br>Per click: $${MPC}`;
   Button1.innerHTML = `Earn Money<br>Total clicks: ${totalClicks}`
-  Button2.innerHTML = `Upgrade Money per Second<br>Cost: $${upgradeMoney}`
-  Button3.innerHTML = `Upgrade Money per Click<br>Cost: $${upgradeMoney2}`
+  Button2.innerHTML = `Money per Second<br>Cost: $${upgradeMoney}`
+  Button3.innerHTML = `Money per Click<br>Cost: $${upgradeMoney2}`
 }
 
 function clicker() {
