@@ -46,11 +46,12 @@
 }
 
 .ResetButton {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     color: rgb(179, 8, 8);
     width: 25%;
     height: 100%;
+    padding: 1%;
     display: block;
     margin: 0 auto;
     border-color: red;
