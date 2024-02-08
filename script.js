@@ -43,8 +43,9 @@ function clicker() {
 function clickerUpgrade() {
   if (money >= upgradeMoney) {
     money -= upgradeMoney;
-    if(MPS != 0) {MPS *= 2} else {MPS += 1};
-    upgradeMoney *= 2.25;
+    if(MPS != 0) {MPS *= 1.5} else {MPS += 1};
+    MPS = Math.round(MPS);
+    upgradeMoney *= 2;
     upgradeMoney = Math.round(upgradeMoney);
     money = Math.round(money);
   }
