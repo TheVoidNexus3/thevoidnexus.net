@@ -7,7 +7,7 @@ const savedClicks = "savedClicks";
 
 
 let jsonString = localStorage.getItem(`Saved`);
-let save = JSON.parse(jsonString);
+let save = JSON.parse(jsonString) || {};
 
 let money = +save.money || 0;
 let upgradeMoney = +save.upgradeMoney || 10;
