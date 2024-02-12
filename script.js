@@ -1,5 +1,4 @@
-// Created by TheVoidNexus on 31.01.2024 | Updated: 08.02.2024
-
+// Created by TheVoidNexus on 31.01.2024 | Updated: 12.02.2024
 const savedMoney = "savedMoney";
 const savedUpgrade = "savedUpgrade";
 const savedUpgrade2 = "savedUpgrade2";
@@ -7,26 +6,38 @@ const savedMPS = "savedMPS";
 const savedMPC = "savedMPC";
 const savedClicks = "savedClicks";
 
-function redirect() {
-  window.location.href = "https://thevoidnexus.github.io/database/";
-}
+let jsonString = localStorage.getItem(`Saved`);
+let save = JSON.parse(jsonString);
 
-function redirect2() {
-  window.location.href = "https://thevoidnexus.github.io/calculator/";
-}
-
-let money = +localStorage.getItem(savedMoney) || 0;
+let money = +save.money || 0;
+let upgradeMoney = +save.upgradeMoney || 10;
+let upgradeMoney2 = +save.upgradeMoney2 || 10;
+let MPS = +save.MPS || 0;
+let MPC = +save.MPC || 1;
+let totalClicks = +save.totalClicks || 0;
 let roundedMoney;
 let moneySuffix = "";
 let roundedMoney2;
 let moneySuffix2 = "";
 let roundedMoney3;
 let moneySuffix3 = "";
-let upgradeMoney = +localStorage.getItem(savedUpgrade) || 10;
-let upgradeMoney2 = +localStorage.getItem(savedUpgrade2) || 10;
-let MPS = +localStorage.getItem(savedMPS) || 0;
-let MPC = +localStorage.getItem(savedMPC) || 1;
-let totalClicks = +localStorage.getItem(savedClicks) || 0;
+
+
+setInterval(function() {
+  money += MPS;
+  update();
+  save.money = money;
+  save.upgradeMoney = upgradeMoney;
+  save.upgradeMoney2 = upgradeMoney2;
+  save.MPS = MPS;
+  save.MPC = MPC;
+  save.totalClicks = totalClicks;
+  
+	jsonString = JSON.stringify(save);
+	localStorage.setItem(`Saved`, jsonString);
+}, 1000);
+
+
 
 function moneyRounder(thisMoney) {
   let suffix = "";
@@ -48,17 +59,20 @@ function moneyRounder(thisMoney) {
 
   if (thisMoney >= 1000000000) {
     if (thisMoney < 1000000000000) {
-    roundedMoney = (thisMoney / 1000000000).toFixed(2);
-    suffix = "B";
+      roundedMoney = (thisMoney / 1000000000).toFixed(2);
+      suffix = "B";
+    }
   }
-}
 
   if (thisMoney >= 1000000000000) {
-      roundedMoney = (thisMoney / 1000000000000).toFixed(2);
-      suffix = "T";
-    }
+    roundedMoney = (thisMoney / 1000000000000).toFixed(2);
+    suffix = "T";
+  }
 
-  return { amount: roundedMoney, suffix: suffix };
+  return {
+    amount: roundedMoney,
+    suffix: suffix
+  };
 }
 
 function update() {
@@ -81,19 +95,19 @@ function clicker() {
   money += MPC;
   totalClicks += 1;
   update();
-  localStorage.setItem(savedMoney, money);
 }
 
 function clickerUpgrade() {
   if (money >= upgradeMoney) {
     money -= upgradeMoney;
-    if (MPS != 0) { MPS *= 1.5; }
-    else { MPS += 1; }
+    if (MPS != 0) {
+      MPS *= 1.5;
+    } else {
+      MPS += 1;
+    }
     MPS = Math.round(MPS);
     upgradeMoney *= 1.5;
     upgradeMoney = Math.round(upgradeMoney);
-    localStorage.setItem(savedMoney, money);
-    localStorage.setItem(savedUpgrade, upgradeMoney);
     MPS = Math.round(MPS);
     update();
   }
@@ -105,16 +119,13 @@ function clickerUpgrade2() {
     MPC *= 1.5;
     upgradeMoney2 *= 1.5;
     upgradeMoney2 = Math.round(upgradeMoney2);
-    localStorage.setItem(savedMoney, money);
-    localStorage.setItem(savedUpgrade2, upgradeMoney2);
     MPC = Math.round(MPC);
     update();
   }
 }
 
 function gameReset() {
-  let confirmation = confirm("Do you really want to reset your progress?");
-  if (confirmation == true) {
+  if (confirm("Do you really want to reset your progress?")) {
     money = 0;
     MPS = 0;
     MPC = 1;
@@ -127,13 +138,10 @@ function gameReset() {
   }
 }
 
-setInterval(function () {
-  money += MPS;
-  update();
-  localStorage.setItem(savedMoney, money);
-  localStorage.setItem(savedMPS, MPS);
-  localStorage.setItem(savedMPC, MPC);
-  localStorage.setItem(savedUpgrade, upgradeMoney);
-  localStorage.setItem(savedUpgrade2, upgradeMoney2);
-  localStorage.setItem(savedClicks, totalClicks);
-}, 1000);
+function redirect() {
+  window.location.href = "https://thevoidnexus.github.io/database/";
+}
+
+function redirect2() {
+  window.location.href = "https://thevoidnexus.github.io/calculator/";
+}
