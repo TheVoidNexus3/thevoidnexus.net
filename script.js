@@ -47,12 +47,16 @@ function moneyRounder(thisMoney) {
   }
 
   if (thisMoney >= 1000000000) {
+    if (thisMoney < 1000000000000) {
     roundedMoney = (thisMoney / 1000000000).toFixed(2);
     suffix = "B";
   }
+}
 
-  console.log("Rounded Money:", roundedMoney);
-  console.log("Suffix:", suffix);
+  if (thisMoney >= 1000000000000) {
+      roundedMoney = (thisMoney / 1000000000000).toFixed(2);
+      suffix = "T";
+    }
 
   return { amount: roundedMoney, suffix: suffix };
 }
@@ -86,7 +90,7 @@ function clickerUpgrade() {
     if (MPS != 0) { MPS *= 1.5; }
     else { MPS += 1; }
     MPS = Math.round(MPS);
-    upgradeMoney *= 2;
+    upgradeMoney *= 1.5;
     upgradeMoney = Math.round(upgradeMoney);
     localStorage.setItem(savedMoney, money);
     localStorage.setItem(savedUpgrade, upgradeMoney);
@@ -99,7 +103,7 @@ function clickerUpgrade2() {
   if (money >= upgradeMoney2) {
     money -= upgradeMoney2;
     MPC *= 1.5;
-    upgradeMoney2 *= 2;
+    upgradeMoney2 *= 1.5;
     upgradeMoney2 = Math.round(upgradeMoney2);
     localStorage.setItem(savedMoney, money);
     localStorage.setItem(savedUpgrade2, upgradeMoney2);
