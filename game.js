@@ -65,6 +65,35 @@ function update() {
   Button1.innerHTML = `Earn Money<br>Total clicks: ${totalClicks}`;
   Button2.innerHTML = `Money per Second<br>Cost: $${formattedUpgradeMoney.amount}${formattedUpgradeMoney.suffix}`;
   Button3.innerHTML = `Money per Click<br>Cost: $${formattedUpgradeMoney2.amount}${formattedUpgradeMoney2.suffix}`;
+ 
+ 
+let today = new Date();
+let day = today.getDate();
+let mm = today.getMonth() + 1;
+let yyyy = today.getFullYear();
+
+if(day < 10) {
+day = "0" + day;
+} 
+
+if(mm < 10) {
+mm = "0" + mm;
+}
+
+let hour = today.getHours();
+let minute = today.getMinutes();
+let second = today.getSeconds();
+
+if(hour < 10) {hour = "0" + hour}
+if(minute < 10) {minute = "0" + minute}
+if(second < 10) {second = "0" + second}
+
+let dateLog = day + "." + mm + "." + yyyy;
+let hourLog = hour + " : " + minute + " : " + second;
+let date = document.getElementById('date');
+let hours = document.getElementById('hour');
+date.innerHTML = dateLog;
+hours.innerHTML = hourLog;
 }
 
 function clicker() {

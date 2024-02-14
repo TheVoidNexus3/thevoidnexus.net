@@ -94,3 +94,11 @@
 .calculator:hover {
     background-color: gainsboro;
 }
+.date {
+    display: inline-block;
+    margin: 0;
+  }
+  .hour {
+    margin: 0;
+    float: right;
+  }
