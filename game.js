@@ -12,6 +12,21 @@ setInterval(function() {
   
 	jsonString = JSON.stringify(save);
 	localStorage.setItem(`Saved`, jsonString);
+
+  playtimeSeconds++
+  if(playtimeSeconds == 60) {
+    playtimeSeconds = 0;
+    playtimeMinutes++
+  }
+  if(playtimeMinutes == 60) {
+    playtimeMinutes = 0;
+    playtimeHours++
+  }
+
+  save.seconds = playtimeSeconds;
+  save.minutes = playtimeMinutes;
+  save.hours = playtimeHours;
+
 }, 1000);
 
 
@@ -94,6 +109,10 @@ let date = document.getElementById('date');
 let hours = document.getElementById('hour');
 date.innerHTML = dateLog;
 hours.innerHTML = hourLog;
+
+let playtimeLog = playtimeHours + "h " + playtimeMinutes + "m " + playtimeSeconds + "s"
+let playtime = document.getElementById(`playtime`);
+playtime.innerHTML = playtimeLog;
 }
 
 function clicker() {

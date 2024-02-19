@@ -21,3 +21,6 @@ let roundedMoney2;
 let moneySuffix2 = "";
 let roundedMoney3;
 let moneySuffix3 = "";
+let playtimeHours = +save.hours || 0;
+let playtimeMinutes = +save.minutes || 0;
+let playtimeSeconds = +save.seconds || 0;

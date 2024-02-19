@@ -102,3 +102,13 @@
     margin: 0;
     float: right;
   }
+
+.playtime {
+    display: inline-block;
+    margin: 0;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
