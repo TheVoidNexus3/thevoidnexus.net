@@ -24,3 +24,34 @@ let moneySuffix3 = "";
 let playtimeHours = +save.hours || 0;
 let playtimeMinutes = +save.minutes || 0;
 let playtimeSeconds = +save.seconds || 0;
+
+
+
+const registerForm = document.getElementById('registerForm');
+  const loginForm = document.getElementById('loginForm');
+
+  registerForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const email = registerForm.email.value;
+    const password = registerForm.password.value;
+    try {
+      const userCredential = await firebase.auth().createUserWithEmailAndPassword(email, password);
+      alert('Registration successful');
+      console.log(userCredential);
+    } catch (error) {
+      alert(error.message);
+    }
+  });
+
+  loginForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const email = loginForm.email.value;
+    const password = loginForm.password.value;
+    try {
+      const userCredential = await firebase.auth().signInWithEmailAndPassword(email, password);
+      alert('Login successful');
+      console.log(userCredential);
+    } catch (error) {
+      alert(error.message);
+    }
+  });
