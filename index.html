@@ -25,5 +25,20 @@
     <br>
     <button onclick="redirect()" class="database">Database</button>
     <button onclick="redirect2()" class="calculator">Calculator</button>
+  <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+  const firebaseConfig = {
+    apiKey: "AIzaSyCpY_KA5Bek2MOHvO86UN3FpTem6dn0sjk",
+    authDomain: "thevoidnexus-2.firebaseapp.com",
+    projectId: "thevoidnexus-2",
+    storageBucket: "thevoidnexus-2.appspot.com",
+    messagingSenderId: "286424705349",
+    appId: "1:286424705349:web:680b9f80d68feca9e9b62c",
+    measurementId: "G-Z7HVH4RP5B"
+  };
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
   </body>
 </html>
