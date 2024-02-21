@@ -27,10 +27,12 @@ let playtimeSeconds = +save.seconds || 0;
 
 
 
- document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
       const signupForm = document.getElementById('signupForm');
       const loginForm = document.getElementById('loginForm');
-
+ }
+     
+     
     signupForm.addEventListener('submit', (event) => {
       event.preventDefault();
       const email = signupForm.signupEmail.value;
@@ -66,3 +68,4 @@ let playtimeSeconds = +save.seconds || 0;
           alert(errorMessage);
         });
     });
+
