@@ -27,31 +27,44 @@ let playtimeSeconds = +save.seconds || 0;
 
 
 
-const registerForm = document.getElementById('registerForm');
-  const loginForm = document.getElementById('loginForm');
+const signupForm = document.getElementById('signupForm');
+    const loginForm = document.getElementById('loginForm');
 
-  registerForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const email = registerForm.email.value;
-    const password = registerForm.password.value;
-    try {
-      const userCredential = await firebase.auth().createUserWithEmailAndPassword(email, password);
-      alert('Registration successful');
-      console.log(userCredential);
-    } catch (error) {
-      alert(error.message);
-    }
-  });
+    signupForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const email = signupForm.signupEmail.value;
+      const password = signupForm.signupPassword.value;
+      
+      firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log("User registered:", user);
+          alert('Registration successful');
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          console.error("Registration error:", errorMessage);
+          alert(errorMessage);
+        });
+    });
 
-  loginForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const email = loginForm.email.value;
-    const password = loginForm.password.value;
-    try {
-      const userCredential = await firebase.auth().signInWithEmailAndPassword(email, password);
-      alert('Login successful');
-      console.log(userCredential);
-    } catch (error) {
-      alert(error.message);
-    }
-  });
+    loginForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const email = loginForm.loginEmail.value;
+      const password = loginForm.loginPassword.value;
+      
+      firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log("User logged in:", user);
+          alert('Login successful');
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          console.error("Login error:", errorMessage);
+          alert(errorMessage);
+        });
+    });
+  </script>
+</body>
+</html>
