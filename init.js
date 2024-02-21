@@ -65,6 +65,3 @@ const signupForm = document.getElementById('signupForm');
           alert(errorMessage);
         });
     });
-  </script>
-</body>
-</html>
