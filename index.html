@@ -26,17 +26,22 @@
     <button onclick="redirect()" class="database">Database</button>
     <button onclick="redirect2()" class="calculator">Calculator</button>
 
-  <form id="registerForm">
-  <input type="email" id="email" placeholder="Email" required>
-  <input type="password" id="password" placeholder="Password" required>
-  <button type="submit">Register</button>
-</form>
+ <form id="signupForm">
+    <label for="signupEmail">Email:</label>
+    <input type="email" id="signupEmail" required>
+    <label for="signupPassword">Password:</label>
+    <input type="password" id="signupPassword" required>
+    <button type="submit">Sign Up</button>
+  </form>
 
 <form id="loginForm">
-  <input type="email" id="email" placeholder="Email" required>
-  <input type="password" id="password" placeholder="Password" required>
-  <button type="submit">Login</button>
-</form>
+    <label for="loginEmail">Email:</label>
+    <input type="email" id="loginEmail" required>
+    <label for="loginPassword">Password:</label>
+    <input type="password" id="loginPassword" required>
+    <button type="submit">Login</button>
+  </form>
+  
   <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
