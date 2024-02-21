@@ -30,7 +30,7 @@ let playtimeSeconds = +save.seconds || 0;
 document.addEventListener('DOMContentLoaded', function() {
       const signupForm = document.getElementById('signupForm');
       const loginForm = document.getElementById('loginForm');
- }
+ });
      
      
     signupForm.addEventListener('submit', (event) => {
