@@ -7,17 +7,15 @@ body {
     text-align: center;
     text-align: center;
     color: whitesmoke;
-  -webkit-animation: glow 2s ease-in-out infinite alternate;
-  -moz-animation: glow 2s ease-in-out infinite alternate;
   animation: glow 2s ease-in-out infinite alternate;
 }
 
 @keyframes glow {
     from {
-      text-shadow: 0 0 10px #ff0901, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+      text-shadow: 0 0 10px #ff0800, 0 0 20px #ff0000, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
     }
     to {
-      text-shadow: 0 0 20px #57ccef, 0 0 20px #fdfdfd, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+      text-shadow: 0 0 10px #a3037b, 0 0 20px #f00696, 0 0 40px #000000, 0 0 50px #000000, 0 0 60px #000000, 0 0 70px #eb08a7, 0 0 80px #e40dd2;
     }
 }
 
