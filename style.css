@@ -1,11 +1,28 @@
+body {
+    background-image: url('https://wallpapers.com/images/hd/purple-and-black-background-dq2wllf9j8gpynbo.jpg');
+  }
+
 .ClickerTitle {
     font-size: 200%;
     text-align: center;
-    color: rgb(145, 13, 112);
-    text-decoration: underline;
+    text-align: center;
+    color: whitesmoke;
+  -webkit-animation: glow 2s ease-in-out infinite alternate;
+  -moz-animation: glow 2s ease-in-out infinite alternate;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+      text-shadow: 0 0 10px #ff0901, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    }
+    to {
+      text-shadow: 0 0 20px #57ccef, 0 0 20px #fdfdfd, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    }
 }
 
 .Info {
+    color: white;
     text-align: center;
     font-size: 150%;
 }
@@ -15,10 +32,15 @@
     font-size: 25px;
     display: block;
     margin: 0 auto;
+    color: white;
+    background-color: transparent;
+    border-color: red;
+    border-radius: 10px;
+    border-style: solid;
 }
 .Button1:hover {
-    background-color: gainsboro;
-    border-style: dotted;
+    border-style: dashed;
+    opacity: 0.95;
 }
 
 .Button2 {
@@ -27,10 +49,15 @@
     font-size: 25px;
     display: block;
     margin: 0 auto;
+    color: white;
+    background-color: transparent;
+    border-color: red;
+    border-radius: 10px;
+    border-style: solid;
 }
 .Button2:hover {
-    background-color: gainsboro;
-    border-style: dotted;
+    border-style: dashed;
+    opacity: 0.95;
 }
 
 .Button3 {
@@ -39,26 +66,34 @@
     font-size: 25px;
     display: block;
     margin: 0 auto;
+    color: white;
+    background-color: transparent;
+    border-color: red;
+    border-radius: 10px;
+    border-style: solid;
 }
 .Button3:hover {
-    background-color: gainsboro;
-    border-style: dotted;
+    border-style: dashed;
+    opacity: 0.95;
 }
 
 .ResetButton {
     font-size: 16px;
     font-weight: bold;
-    color: rgb(179, 8, 8);
+    color: rgb(254, 140, 0);
     width: 25%;
     height: 100%;
     padding: 1%;
     display: block;
     margin: 0 auto;
-    border-color: red;
+    border-color: rgb(254, 140, 0);
+    background: transparent;
     border-style: dotted;
+    border-radius: 10px;
 }
 .ResetButton:hover {
-    background-color: rgb(184, 1, 1);
+    opacity: 0.95;
+    background-color: orangered;
     color: rgb(255, 255, 255);
     border-color: white;
 }
@@ -66,6 +101,7 @@
 .Other {
     font-size: 135%;
     text-decoration: underline;
+    color: gainsboro;
     text-align: center;
 }
 
@@ -74,10 +110,16 @@
     height: 40px;
     display: block;
     margin: 0 auto;
-    border: 1px;
+    border-color: whitesmoke;
+    background: transparent;
+    border-radius: 10px;
+    border-style: dashed;
+    color: whitesmoke;
 }
 .database:hover {
-    background-color: gainsboro;
+    opacity: 0.9;
+    color: gainsboro;
+    border-color: gainsboro;
 }
 
 .calculator {
@@ -85,27 +127,34 @@
     height: 40px;
     display: block;
     margin: 0 auto;
-    border-style: dotted;
-    border-color: gray;
-    border-bottom: 1px;
-    border-left: 1px;
-    border-right: 1px;
+    color: whitesmoke;
+    border-top: 0px;
+    border-color: whitesmoke;
+    background: transparent;
+    border-radius: 10px;
+    border-style: dashed;
 }
 .calculator:hover {
-    background-color: gainsboro;
+    opacity: 0.9;
+    color: gainsboro;
+    border-color: gainsboro;
 }
 .date {
     display: inline-block;
     margin: 0;
+    color: whitesmoke;
   }
+
   .hour {
     margin: 0;
     float: right;
+    color: whitesmoke;
   }
 
 .playtime {
     display: inline-block;
     margin: 0;
+    color: whitesmoke;
 }
 .container {
   display: flex;
