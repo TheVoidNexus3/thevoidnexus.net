@@ -1,10 +1,10 @@
 body {
+    user-select: none;
     background-image: url('https://wallpapers.com/images/hd/purple-and-black-background-dq2wllf9j8gpynbo.jpg');
   }
 
 .ClickerTitle {
     font-size: 200%;
-    text-align: center;
     text-align: center;
     color: whitesmoke;
   animation: glow 2s ease-in-out infinite alternate;
@@ -17,6 +17,31 @@ body {
     to {
       text-shadow: 0 0 10px #a3037b, 0 0 20px #f00696, 0 0 40px #000000, 0 0 50px #000000, 0 0 60px #000000, 0 0 70px #eb08a7, 0 0 80px #e40dd2;
     }
+}
+
+@keyframes glow-border {
+    0% {
+        border-color: rgba(251, 9, 255, 0.695);
+        box-shadow: 0 0 20px rgba(251, 9, 255, 0.695);
+    }
+    50% {
+        border-color: #ff0800a6;
+        box-shadow: 0 0 30px #ff0800a6;
+    }
+    100% {
+        border-color: rgba(251, 9, 255, 0.695);
+        box-shadow: 0 0 20px rgba(251, 9, 255, 0.695);
+    }
+}
+
+@keyframes glow-hr {
+    0% { border-color: rgba(195, 0, 255, 0.624); }
+    50% { border-color: rgba(255, 0, 0, 0.547); }
+    100% { border-color: rgba(195, 0, 255, 0.624); }
+}
+
+.line {
+    animation: glow-hr 10s ease infinite;
 }
 
 .Info {
@@ -32,9 +57,10 @@ body {
     margin: 0 auto;
     color: white;
     background-color: transparent;
-    border-color: red;
+    border-color: rgba(251, 9, 255, 0.695);
     border-radius: 10px;
     border-style: solid;
+    animation: glow-border 5s ease-in-out infinite alternate;
 }
 .Button1:hover {
     border-style: dashed;
@@ -49,9 +75,10 @@ body {
     margin: 0 auto;
     color: white;
     background-color: transparent;
-    border-color: red;
+    border-color: rgba(251, 9, 255, 0.695);
     border-radius: 10px;
     border-style: solid;
+    animation: glow-border 5s ease-in-out infinite alternate;
 }
 .Button2:hover {
     border-style: dashed;
@@ -66,9 +93,10 @@ body {
     margin: 0 auto;
     color: white;
     background-color: transparent;
-    border-color: red;
+    border-color: rgba(251, 9, 255, 0.695);
     border-radius: 10px;
     border-style: solid;
+    animation: glow-border 5s ease-in-out infinite alternate;
 }
 .Button3:hover {
     border-style: dashed;
@@ -78,22 +106,23 @@ body {
 .ResetButton {
     font-size: 16px;
     font-weight: bold;
-    color: rgb(254, 140, 0);
+    color: rgba(255, 255, 255, 0.91);
     width: 25%;
     height: 100%;
     padding: 1%;
     display: block;
     margin: 0 auto;
-    border-color: rgb(254, 140, 0);
+    border-color: rgba(251, 9, 255, 0.846);
     background: transparent;
-    border-style: dotted;
+    border-style: dashed;
     border-radius: 10px;
 }
 .ResetButton:hover {
     opacity: 0.95;
-    background-color: orangered;
+    background-color: rgba(255, 0, 0, 0.658);
     color: rgb(255, 255, 255);
     border-color: white;
+    border-width: 2px;
 }
 
 .Other {
@@ -102,60 +131,59 @@ body {
     color: gainsboro;
     text-align: center;
 }
-
-.database {
+.database, .calculator {
     width: 25%;
     height: 40px;
-    display: block;
-    margin: 0 auto;
-    border-color: whitesmoke;
-    background: transparent;
-    border-radius: 10px;
-    border-style: dashed;
+    border: solid lightgray;
+    border-radius: 20px;
+    border-width: 2px;
     color: whitesmoke;
-}
-.database:hover {
-    opacity: 0.9;
-    color: gainsboro;
-    border-color: gainsboro;
+    background: transparent;
+    display:inline-table;
 }
 
-.calculator {
-    width: 25%;
-    height: 40px;
-    display: block;
-    margin: 0 auto;
-    color: whitesmoke;
-    border-top: 0px;
-    border-color: whitesmoke;
-    background: transparent;
-    border-radius: 10px;
-    border-style: dashed;
-}
-.calculator:hover {
+.database:hover, .calculator:hover {
     opacity: 0.9;
-    color: gainsboro;
-    border-color: gainsboro;
+    border-color: lightblue;
+    color: lightblue;
 }
-.date {
+
+.main {
     display: inline-block;
+    text-decoration: none;
     margin: 0;
-    color: whitesmoke;
-  }
-
-  .hour {
-    margin: 0;
-    float: right;
-    color: whitesmoke;
-  }
+    font-size: 25px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    flex-grow: 1;
+}
+.main:hover {
+    color: lightblue;
+}
 
 .playtime {
-    display: inline-block;
-    margin: 0;
+    display: flex;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0 auto; 
+    width: fit-content;
     color: whitesmoke;
+    flex-grow: 0.2;
 }
+
+.playtime:hover {
+    color: lightblue;
+}
+
 .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container2 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-grow: 1;
 }

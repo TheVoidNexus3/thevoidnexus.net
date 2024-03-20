@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" media="screen and (min-width: 768px)">
+    <link rel="stylesheet" href="mstyle.css" media="screen and (max-width: 767px)">
     <script src="game.js"></script>
     <script src="init.js"></script>
-  </head>
     <title>TheVoidNexus | VoidClicker</title>
-    <div class="container">
-    <p id="date" class="date"></p><p id="playtime" class="playtime"></p><p id="hour" class="hour"></p>
+</head>
+<body>
+<div class="container">
+    <a href="https://thevoidnexus.github.io" id="main" class="main">thevoidnexus.github.io</a>
+    <p id="playtime" class="playtime">Playtime: 00h 00m 00s</p>
+    <div class="container2">
+        <button onclick="redirect()" class="database">Database</button>
+        <button onclick="redirect2()" class="calculator">Calculator</button>
     </div>
-    <h1 class="ClickerTitle">VoidClicker</h1>
-    <p id="Info" class="Info">···<br>Loading...<br>···</p>
-    <button onclick="clicker()" onclick="update()" class="Button1" id="Button1">Earn Money<br>Total clicks: -</button>
-    <br>
-    <button onclick="clickerUpgrade()" onclick="update()" class="Button2" id="Button2">Money per Second<br>Cost: -</button> 
-    <br>
-    <button onclick="clickerUpgrade2()" onclick="update()" class="Button3" id="Button3">Money per Click<br>Cost: -</button>
-    <br> <br> <br>
-    <button onclick="gameReset()" class="ResetButton">Reset your progress</button>
-    <br>
-    <p class="Other">Other Pages:</p>
-    <br>
-    <button onclick="redirect()" class="database">Database</button>
-    <button onclick="redirect2()" class="calculator">Calculator</button>
-  </body>
+</div>
+<hr class="line">
+<h1 class="ClickerTitle">VoidClicker</h1>
+<p id="Info" class="Info">···<br>Loading...<br>···</p>
+<button onclick="clicker()" onclick="update()" class="Button1" id="Button1">Earn Money<br>Total clicks: -</button>
+<br>
+<button onclick="clickerUpgrade()" onclick="update()" class="Button2" id="Button2">Money per Second<br>Cost: -</button>
+<br>
+<button onclick="clickerUpgrade2()" onclick="update()" class="Button3" id="Button3">Money per Click<br>Cost: -</button>
+<br> <br> <br>
+<button onclick="gameReset()" class="ResetButton">Reset your progress</button>
+</body>
 </html>

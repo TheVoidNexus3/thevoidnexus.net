@@ -1,34 +1,36 @@
-// Created by TheVoidNexus on 31.01.2024 | Updated: 12.02.2024
+// Created by TheVoidNexus on 31.01.2024 | Updated: 20.03.2024
+
+const MILLISECONDS_PER_SECOND = 1000;
+const UPDATE_INTERVAL = 1000;
 
 setInterval(function() {
   money += MPS;
+  playtimeSeconds++;
+  if (playtimeSeconds === 60) {
+    playtimeSeconds = 0;
+    playtimeMinutes++;
+  }
+  if (playtimeMinutes === 60) {
+    playtimeMinutes = 0;
+    playtimeHours++;
+  }
   update();
+}, UPDATE_INTERVAL);
+
+window.onbeforeunload = function() {
   save.money = money;
   save.upgradeMoney = upgradeMoney;
   save.upgradeMoney2 = upgradeMoney2;
   save.MPS = MPS;
   save.MPC = MPC;
   save.totalClicks = totalClicks;
-  
-	jsonString = JSON.stringify(save);
-	localStorage.setItem(`Saved`, jsonString);
-
-  playtimeSeconds++
-  if(playtimeSeconds == 60) {
-    playtimeSeconds = 0;
-    playtimeMinutes++
-  }
-  if(playtimeMinutes == 60) {
-    playtimeMinutes = 0;
-    playtimeHours++
-  }
-
   save.seconds = playtimeSeconds;
   save.minutes = playtimeMinutes;
   save.hours = playtimeHours;
-
-}, 1000);
-
+  const jsonString = JSON.stringify(save);
+  localStorage.setItem(`Saved`, jsonString);
+  return null;
+};
 
 function moneyRounder(thisMoney) {
   let suffix = "";
@@ -40,21 +42,18 @@ function moneyRounder(thisMoney) {
       suffix = "K";
     }
   }
-
   if (thisMoney >= 1000000) {
     if (thisMoney < 1000000000) {
       roundedMoney = (thisMoney / 1000000).toFixed(2);
       suffix = "M";
     }
   }
-
   if (thisMoney >= 1000000000) {
     if (thisMoney < 1000000000000) {
       roundedMoney = (thisMoney / 1000000000).toFixed(2);
       suffix = "B";
     }
   }
-
   if (thisMoney >= 1000000000000) {
     roundedMoney = (thisMoney / 1000000000000).toFixed(2);
     suffix = "T";
@@ -67,52 +66,30 @@ function moneyRounder(thisMoney) {
 }
 
 function update() {
-  let formattedMoney = moneyRounder(money);
-  let formattedUpgradeMoney = moneyRounder(upgradeMoney);
-  let formattedUpgradeMoney2 = moneyRounder(upgradeMoney2);
+  requestAnimationFrame(function() {
+    const formattedMoney = moneyRounder(money);
+    const formattedUpgradeMoney = moneyRounder(upgradeMoney);
+    const formattedUpgradeMoney2 = moneyRounder(upgradeMoney2);
 
-  let Info = document.getElementById(`Info`);
-  let Button1 = document.getElementById(`Button1`);
-  let Button2 = document.getElementById(`Button2`);
-  let Button3 = document.getElementById(`Button3`);
-
-  Info.innerHTML = `Balance: $${formattedMoney.amount}${formattedMoney.suffix}<br>Per second: $${MPS}<br>Per click: $${MPC}`;
-  Button1.innerHTML = `Earn Money<br>Total clicks: ${totalClicks}`;
-  Button2.innerHTML = `Money per Second<br>Cost: $${formattedUpgradeMoney.amount}${formattedUpgradeMoney.suffix}`;
-  Button3.innerHTML = `Money per Click<br>Cost: $${formattedUpgradeMoney2.amount}${formattedUpgradeMoney2.suffix}`;
- 
- 
-let today = new Date();
-let day = today.getDate();
-let mm = today.getMonth() + 1;
-let yyyy = today.getFullYear();
-
-if(day < 10) {
-day = "0" + day;
-} 
-
-if(mm < 10) {
-mm = "0" + mm;
-}
-
-let hour = today.getHours();
-let minute = today.getMinutes();
-let second = today.getSeconds();
-
-if(hour < 10) {hour = "0" + hour}
-if(minute < 10) {minute = "0" + minute}
-if(second < 10) {second = "0" + second}
-
-let dateLog = day + "." + mm + "." + yyyy;
-let hourLog = hour + " : " + minute + " : " + second;
-let date = document.getElementById('date');
-let hours = document.getElementById('hour');
-date.innerHTML = dateLog;
-hours.innerHTML = hourLog;
-
-let playtimeLog = playtimeHours + "h " + playtimeMinutes + "m " + playtimeSeconds + "s"
-let playtime = document.getElementById(`playtime`);
-playtime.innerHTML = playtimeLog;
+    setTimeout(function() {
+      const Info = document.getElementById(`Info`);
+      const Button1 = document.getElementById(`Button1`);
+      const Button2 = document.getElementById(`Button2`);
+      const Button3 = document.getElementById(`Button3`);
+      const playtime = document.getElementById(`playtime`);
+  
+      Info.innerHTML = `Balance: $${formattedMoney.amount}${formattedMoney.suffix}<br>Per second: $${MPS}<br>Per click: $${MPC}`;
+      Button1.innerHTML = `Earn Money<br>Total clicks: ${totalClicks}`;
+      Button2.innerHTML = `Money per Second<br>Cost: $${formattedUpgradeMoney.amount}${formattedUpgradeMoney.suffix}`;
+      Button3.innerHTML = `Money per Click<br>Cost: $${formattedUpgradeMoney2.amount}${formattedUpgradeMoney2.suffix}`;
+  
+      const hoursIndex = playtimeHours < 10 ? "0" : "";
+      const minutesIndex = playtimeMinutes < 10 ? "0" : "";
+      const secondsIndex = playtimeSeconds < 10 ? "0" : "";
+      const playtimeLog = `Playtime: ${hoursIndex}${playtimeHours}h ${minutesIndex}${playtimeMinutes}m ${secondsIndex}${playtimeSeconds}s`;
+      playtime.innerHTML = playtimeLog;
+    }, 100)
+  });
 }
 
 function clicker() {
@@ -124,15 +101,10 @@ function clicker() {
 function clickerUpgrade() {
   if (money >= upgradeMoney) {
     money -= upgradeMoney;
-    if (MPS != 0) {
-      MPS *= 1.5;
-    } else {
-      MPS += 1;
-    }
-    MPS = Math.round(MPS);
+    if(MPS != 0) {MPS *= 1.5} else {MPS += 1}
     upgradeMoney *= 1.5;
-    upgradeMoney = Math.round(upgradeMoney);
     MPS = Math.round(MPS);
+    upgradeMoney = Math.round(upgradeMoney);
     update();
   }
 }
