@@ -22,15 +22,15 @@ body {
 @keyframes glow-border {
     0% {
         border-color: rgba(251, 9, 255, 0.695);
-        box-shadow: 0 0 20px rgba(251, 9, 255, 0.695);
+        box-shadow: 0 0 15px rgba(251, 9, 255, 0.695);
     }
     50% {
         border-color: #ff0800a6;
-        box-shadow: 0 0 30px #ff0800a6;
+        box-shadow: 0 0 20px #ff0800a6;
     }
     100% {
         border-color: rgba(251, 9, 255, 0.695);
-        box-shadow: 0 0 20px rgba(251, 9, 255, 0.695);
+        box-shadow: 0 0 15px rgba(251, 9, 255, 0.695);
     }
 }
 
@@ -125,12 +125,6 @@ body {
     border-width: 2px;
 }
 
-.Other {
-    font-size: 135%;
-    text-decoration: underline;
-    color: gainsboro;
-    text-align: center;
-}
 .database, .calculator {
     width: 25%;
     height: 40px;

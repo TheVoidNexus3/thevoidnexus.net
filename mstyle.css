@@ -1,7 +1,9 @@
 @media screen and (max-width: 767px) {
-    body {
+    body, html {
         user-select: none;
         background-image: url('https://wallpapers.com/images/hd/purple-and-black-background-dq2wllf9j8gpynbo.jpg');
+        background-size: cover;
+        background-position: center;
     }
 
     .ClickerTitle {
@@ -88,13 +90,6 @@
         color: rgb(255, 255, 255);
         border-color: white;
         border-width: 2px;
-    }
-
-    .Other {
-        font-size: 135%;
-        text-decoration: underline;
-        color: gainsboro;
-        text-align: center;
     }
 
     .database, .calculator {
