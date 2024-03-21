@@ -1,10 +1,9 @@
 @media screen and (max-width: 767px) {
     body, html {
         user-select: none;
-        background-image: url('https://wallpapers.com/images/hd/purple-and-black-background-dq2wllf9j8gpynbo.jpg');
-        background-size: cover;
-        background-position: center;
-    }
+        background-size: 75%;
+        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjhH_ZJ54dym6dTOntz8mCesnbAEwdHMRY7g&usqp=CAU');
+      }
 
     .ClickerTitle {
         font-size: 200%;
