@@ -34,7 +34,7 @@ window.onbeforeunload = function() {
 
 function moneyRounder(thisMoney) {
   let suffix = "";
-  let roundedMoney;
+  let roundedMoney = thisMoney;
 
   if (thisMoney >= 1000) {
     if (thisMoney < 1000000) {
@@ -166,9 +166,8 @@ function redirect2() {
 
 function toggleIndex() {
   let textElement = document.getElementById('indexText');
-  if (textElement.style.display === "none") {
+  if (textElement.style.display === "none" || textElement.style.display === "") {
     textElement.style.display = "block";
-    textElement.innerHTML = "K - 10^3<br>M - 10^6"
   } else {
     textElement.style.display = "none";
   }
