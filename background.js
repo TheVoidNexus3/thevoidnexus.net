@@ -12,25 +12,9 @@ function createDot() {
     setTimeout(function() {
         document.querySelector('.dynamic-background').removeChild(dot);
         dot.remove;
-    }, 35000);
+    }, 60000);
 }
 
-let dotInterval;
-
-function startDotCreation() {
-    dotInterval = setInterval(createDot, 750);
-}
-
-function stopDotCreation() {
-    clearInterval(dotInterval);
-}
-
-document.addEventListener('visibilitychange', function() {
-    if (document.visibilityState === 'hidden') {
-        stopDotCreation();
-    } else {
-        startDotCreation();
-    }
-});
-
-startDotCreation();
+setInterval(function() {
+    createDot();
+}, 750);
