@@ -3,6 +3,7 @@
         user-select: none;
         overflow: hidden;
         touch-action: manipulation;
+        background-color: transparent;
       }
 
       .dynamic-background {
