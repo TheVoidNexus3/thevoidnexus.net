@@ -13,6 +13,16 @@ body, html {
     z-index: -1;
 }
 
+.line {
+    border-width: 1.5px;
+    border-style: solid;
+    border-color: white;
+}
+
+.line:hover {
+    border-color: lightblue;
+}
+
 .dot {
     position: absolute;
     width: 8px;
