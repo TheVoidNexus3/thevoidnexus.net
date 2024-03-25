@@ -13,12 +13,6 @@ body, html {
     z-index: -1;
 }
 
-.line {
-    border-width: 1.5px;
-    border-style: solid;
-    border-color: white;
-}
-
 .line:hover {
     border-color: lightblue;
 }
@@ -45,12 +39,34 @@ body, html {
     }
 }
 
+.Index {
+    border-style: solid;
+    background-color: transparent;
+    color: white;
+    height: 30px;
+    width: 100px;
+    border-color: gray;
+    border-radius: 3px;
+}
+
+.index-container {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+}
+
+.indexText {
+    display: none;
+    color: white;
+    margin: 5px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 
 .ClickerTitle {
     font-size: 200%;
     text-align: center;
     color: whitesmoke;
-  animation: glow 2s ease-in-out infinite alternate;
+    animation: glow 2s ease-in-out infinite alternate;
 }
 
 @keyframes glow {

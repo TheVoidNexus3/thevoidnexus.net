@@ -8,6 +8,11 @@ function createDot() {
     dot.style.backgroundColor = `hsl(${hue}, 100%, 70%)`;
 
     document.querySelector('.dynamic-background').appendChild(dot);
+
+    setTimeout(function() {
+        document.querySelector('.dynamic-background').removeChild(dot);
+        dot.remove;
+    }, 35000);
 }
 
 let dotInterval;

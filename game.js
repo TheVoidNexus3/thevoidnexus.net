@@ -34,7 +34,7 @@ window.onbeforeunload = function() {
 
 function moneyRounder(thisMoney) {
   let suffix = "";
-  let roundedMoney = thisMoney;
+  let roundedMoney;
 
   if (thisMoney >= 1000) {
     if (thisMoney < 1000000) {
@@ -57,6 +57,26 @@ function moneyRounder(thisMoney) {
   if (thisMoney >= 1000000000000) {
     roundedMoney = (thisMoney / 1000000000000).toFixed(2);
     suffix = "T";
+  }
+  if (thisMoney >= 10**15) {
+    roundedMoney = (thisMoney / 10**15).toFixed(2);
+    suffix = "Qa";
+  }
+  if (thisMoney >= 10**18) {
+    roundedMoney = (thisMoney / 10**18).toFixed(2);
+    suffix = "Qi";
+  }
+  if (thisMoney >= 10**21) {
+    roundedMoney = (thisMoney / 10**21).toFixed(2);
+    suffix = "Sx";
+  }
+  if (thisMoney >= 10**24) {
+    roundedMoney = (thisMoney / 10**24).toFixed(2);
+    suffix = "Sp";
+  }
+  if (thisMoney >= 10**27) {
+    roundedMoney = (thisMoney / 10**27).toFixed(2);
+    suffix = "Oc";
   }
 
   return {
@@ -142,4 +162,14 @@ function redirect() {
 
 function redirect2() {
   window.location.href = "https://thevoidnexus.github.io/calculator/";
+}
+
+function toggleIndex() {
+  let textElement = document.getElementById('indexText');
+  if (textElement.style.display === "none") {
+    textElement.style.display = "block";
+    textElement.innerHTML = "K - 10^3<br>M - 10^6"
+  } else {
+    textElement.style.display = "none";
+  }
 }
