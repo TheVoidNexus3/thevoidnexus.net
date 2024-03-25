@@ -1,4 +1,4 @@
-// Created by TheVoidNexus on 31.01.2024 | Updated: 20.03.2024
+// Created by TheVoidNexus on 31.01.2024 | Updated: 25.03.2024
 
 const MILLISECONDS_PER_SECOND = 1000;
 const UPDATE_INTERVAL = 1000;
@@ -70,6 +70,8 @@ function update() {
     const formattedMoney = moneyRounder(money);
     const formattedUpgradeMoney = moneyRounder(upgradeMoney);
     const formattedUpgradeMoney2 = moneyRounder(upgradeMoney2);
+    const formattedMPS = moneyRounder(MPS);
+    const formattedMPC = moneyRounder(MPC);
 
     setTimeout(function() {
       const Info = document.getElementById(`Info`);
@@ -78,7 +80,7 @@ function update() {
       const Button3 = document.getElementById(`Button3`);
       const playtime = document.getElementById(`playtime`);
   
-      Info.innerHTML = `Balance: $${formattedMoney.amount}${formattedMoney.suffix}<br>Per second: $${MPS}<br>Per click: $${MPC}`;
+      Info.innerHTML = `Balance: $${formattedMoney.amount}${formattedMoney.suffix}<br>Per second: $${formattedMPS.amount}${formattedMPS.suffix}<br>Per click: $${formattedMPC.amount}${formattedMPC.suffix}`;
       Button1.innerHTML = `Earn Money<br>Total clicks: ${totalClicks}`;
       Button2.innerHTML = `Money per Second<br>Cost: $${formattedUpgradeMoney.amount}${formattedUpgradeMoney.suffix}`;
       Button3.innerHTML = `Money per Click<br>Cost: $${formattedUpgradeMoney2.amount}${formattedUpgradeMoney2.suffix}`;
