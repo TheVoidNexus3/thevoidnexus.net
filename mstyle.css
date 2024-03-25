@@ -1,9 +1,42 @@
 @media screen and (max-width: 767px) {
     body, html {
         user-select: none;
-        background-size: 75%;
-        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjhH_ZJ54dym6dTOntz8mCesnbAEwdHMRY7g&usqp=CAU');
+        overflow: hidden;
+        touch-action: manipulation;
       }
+
+      .dynamic-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        z-index: -1;
+    }
+
+      .dot {
+        position: absolute;
+        border-radius: 50%;
+        width: 6px;
+        height: 6px;
+        animation: move 10s linear infinite;
+      }
+    
+      @keyframes move {
+        0% {
+          left: -5%;
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(10px);
+        }
+        100% {
+          left: 110%;
+          transform: translateY(calc(15px + calc(50px * calc(1 - var(--rand)))));
+        }
+      }
+
 
     .ClickerTitle {
         font-size: 200%;
@@ -20,12 +53,6 @@
             text-shadow: 0 0 10px #a3037b, 0 0 20px #f00696, 0 0 40px #000000, 0 0 50px #000000, 0 0 60px #000000, 0 0 70px #eb08a7, 0 0 80px #e40dd2;
         }
     }
-
-    @keyframes glow-hr {
-        0% { border-color: rgba(195, 0, 255, 0.624); }
-        50% { border-color: rgba(255, 0, 0, 0.547); }
-        100% { border-color: rgba(195, 0, 255, 0.624); }
-    }
     
     @keyframes glow-border {
         0% {
@@ -40,11 +67,6 @@
             border-color: rgba(251, 9, 255, 0.695);
             box-shadow: 0 0 10px rgba(251, 9, 255, 0.695);
         }
-    }
-
-
-    .line {
-        animation: glow-hr 10s ease infinite;
     }
 
     .Info {
@@ -131,4 +153,6 @@
         .container, .container2 {
             display: block;
             text-align: center;
+            background-color: black;
+            z-index: 1;
         }
