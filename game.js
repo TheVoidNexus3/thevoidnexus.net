@@ -255,3 +255,18 @@ function toggleIndex() {
     textElement.style.display = "none";
   }
 }
+
+setInterval(function() {
+  const Button2 = document.getElementById(`Button2`);
+  const Button3 = document.getElementById(`Button3`);
+  if(money >= upgradeMoney) {
+    Button2.style.animation = "green 5s ease-in-out infinite alternate";
+  } else {
+    Button2.style.animation = "red 5s ease-in-out infinite alternate"
+  }
+  if(money >= upgradeMoney2) {
+    Button3.style.animation = "green 5s ease-in-out infinite alternate";
+  } else {
+    Button3.style.animation = "red 5s ease-in-out infinite alternate"
+  }
+}, 200)
