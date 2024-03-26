@@ -217,7 +217,7 @@ function clickerUpgrade() {
 function clickerUpgrade2() {
   if (money >= upgradeMoney2) {
     money -= upgradeMoney2;
-    if(MPC != 1) {MPC *= 1.45} else {MPC += 1}
+    if(MPC != 1) {MPC *= 1.5} else {MPC += 1}
     upgradeMoney2 *= 1.5;
     upgradeMoney2 = Math.round(upgradeMoney2);
     MPC = Math.round(MPC);
