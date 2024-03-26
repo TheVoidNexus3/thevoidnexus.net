@@ -45,7 +45,7 @@ body, html {
     background-color: transparent;
     color: white;
     margin-top: 2px;
-    margin-left: 20px;
+    margin-left: 10px;
     height: 30px;
     width: 100px;
     border-color: gray;
@@ -61,6 +61,7 @@ body, html {
 
 .indexText {
     text-align: center;
+    font-size: 14.5px;
     display: none;
     color: white;
     margin: 5px;
