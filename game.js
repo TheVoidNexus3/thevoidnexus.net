@@ -160,7 +160,10 @@ function moneyRounder(thisMoney) {
     roundedMoney = (thisMoney / 10**93).toFixed(0);
     suffix = "Tg";
   }
-
+  if (thisMoney >= 10**96) {
+    roundedMoney = "∞";
+    suffix = " [MAX]";
+  }
 
   return {
     amount: roundedMoney,
@@ -270,3 +273,21 @@ setInterval(function() {
     Button3.style.animation = "red 5s ease-in-out infinite alternate"
   }
 }, 200)
+
+if ('visibilityState' in document) {
+  document.addEventListener('visibilitychange', function() {
+      if (document.visibilityState === 'hidden') {
+        save.money = money;
+        save.upgradeMoney = upgradeMoney;
+        save.upgradeMoney2 = upgradeMoney2;
+        save.MPS = MPS;
+        save.MPC = MPC;
+        save.totalClicks = totalClicks;
+        save.seconds = playtimeSeconds;
+        save.minutes = playtimeMinutes;
+        save.hours = playtimeHours;
+        const jsonString = JSON.stringify(save);
+        localStorage.setItem(`Saved`, jsonString);
+      }
+  });
+}
