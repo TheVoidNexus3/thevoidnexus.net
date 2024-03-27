@@ -52,6 +52,36 @@
         color: whitesmoke;
         animation: glow 2s ease-in-out infinite alternate;
     }
+    
+    @keyframes green {
+      0% {
+          border-color: rgba(9, 255, 0, 0.695);
+          box-shadow: 0 0 15px rgba(9, 255, 0, 0.695);
+      }
+      50% {
+          border-color: #00ff4055;
+          box-shadow: 0 0 20px #00ff4055;
+      }
+      100% {
+          border-color: rgba(9, 255, 0, 0.695);
+          box-shadow: 0 0 15px rgba(9, 255, 0, 0.695);
+      }
+  }
+  
+  @keyframes red {
+      0% {
+          border-color: rgb(255, 0, 0);
+          box-shadow: 0 0 15px rgb(255, 0, 0);
+      }
+      50% {
+          border-color: #ff0000b1;
+          box-shadow: 0 0 20px #ff0000b1;
+      }
+      100% {
+          border-color: rgb(255, 0, 0);
+          box-shadow: 0 0 15px rgb(255, 0, 0);
+      }
+  }
 
     @keyframes glow {
         from {
@@ -63,19 +93,19 @@
     }
     
     @keyframes glow-border {
-        0% {
-            border-color: rgba(251, 9, 255, 0.695);
-            box-shadow: 0 0 10px rgba(251, 9, 255, 0.695);
-        }
-        50% {
-            border-color: #ff0800a6;
-            box-shadow: 0 0 20px #ff0800a6;
-        }
-        100% {
-            border-color: rgba(251, 9, 255, 0.695);
-            box-shadow: 0 0 10px rgba(251, 9, 255, 0.695);
-        }
-    }
+      0% {
+          border-color: rgb(255, 255, 255);
+          box-shadow: 0 0 15px rgb(255, 255, 255);
+      }
+      50% {
+          border-color: #ffffff9c;
+          box-shadow: 0 0 20px #ffffff9c;
+      }
+      100% {
+          border-color: rgb(255, 255, 255);
+          box-shadow: 0 0 15px rgb(255, 255, 255);
+      }
+  }
 
     .Info {
         color: white;
