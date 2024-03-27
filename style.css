@@ -116,16 +116,16 @@ body, html {
 
 @keyframes glow-border {
     0% {
-        border-color: rgb(0, 251, 255);
-        box-shadow: 0 0 15px rgb(0, 251, 255);
+        border-color: rgb(255, 255, 255);
+        box-shadow: 0 0 15px rgb(255, 255, 255);
     }
     50% {
-        border-color: #00fff79c;
-        box-shadow: 0 0 20px #00fff79c;
+        border-color: #ffffff9c;
+        box-shadow: 0 0 20px #ffffff9c;
     }
     100% {
-        border-color: rgb(0, 251, 255);
-        box-shadow: 0 0 15px rgb(0, 251, 255);
+        border-color: rgb(255, 255, 255);
+        box-shadow: 0 0 15px rgb(255, 255, 255);
     }
 }
 
