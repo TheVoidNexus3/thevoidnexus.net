@@ -8,9 +8,10 @@
     <script src="game.js"></script>
     <script src="init.js"></script>
     <script src="background.js"></script>
-    <title>VoidClicker | Game by TheVoidNexus</title>
+    <title>VoidClicker by TheVoidNexus</title>
 </head>
 <body>
+<div class="overlay" id="overlay"></div>
 <div class="dynamic-background"></div>
 <div class="container">
     <a href="https://thevoidnexus.github.io" id="main" class="main">thevoidnexus.github.io</a>
@@ -33,6 +34,13 @@
 <br>
 <button onclick="clickerUpgrade2()" onclick="update()" class="Button3" id="Button3">Money per Click<br>Cost: -</button>
 <br> <br> <br>
-<button onclick="gameReset()" class="ResetButton">Reset your progress</button>
+<button onclick="gameReset()" class="ResetButton" id="reset">Reset your progress</button>
+<div class="popup" id="popup">
+    <p class="PopupText">Do you want to reset your progress?</p>
+    <div class="buttonContainer">
+      <button class="PopupButton" onclick="closePopup()">Cancel</button>
+      <button class="PopupButton"onclick="resetProgress()">Confirm</button>
+    </div>
+  </div>
 </body>
 </html>

@@ -214,6 +214,7 @@ function clickerUpgrade() {
     MPS = Math.round(MPS);
     upgradeMoney = Math.round(upgradeMoney);
     update();
+    transition();
   }
 }
 
@@ -225,21 +226,39 @@ function clickerUpgrade2() {
     upgradeMoney2 = Math.round(upgradeMoney2);
     MPC = Math.round(MPC);
     update();
+    transition();
   }
 }
 
 function gameReset() {
-  if (confirm("Do you really want to reset your progress?")) {
+  const overlay = document.getElementById('overlay');
+  const popup = document.getElementById('popup');
+  popup.style.display = "flex";
+  overlay.style.display = "flex";
+}
+
+function resetProgress() {
+  const overlay = document.getElementById('overlay');
+  const popup = document.getElementById('popup');
+  popup.style.display = "none";
+  overlay.style.display = "none";
+
     money = 0;
     MPS = 0;
     MPC = 1;
     upgradeMoney = 10;
     upgradeMoney2 = 10;
     totalClicks = 0;
-    alert("Your progress has been reset.");
-  } else {
-    alert("You cancelled the reset.");
-  }
+
+    update();
+    transition();
+}
+
+function closePopup() {
+  const overlay = document.getElementById('overlay');
+  const popup = document.getElementById('popup');
+  popup.style.display = "none";
+  overlay.style.display = "none";
 }
 
 function redirect() {
@@ -263,16 +282,25 @@ setInterval(function() {
   const Button2 = document.getElementById(`Button2`);
   const Button3 = document.getElementById(`Button3`);
   if(money >= upgradeMoney) {
-    Button2.style.animation = "green 5s ease-in-out infinite alternate";
-  } else {
-    Button2.style.animation = "red 5s ease-in-out infinite alternate"
+   Button2.style.animation = "red-green 1s forwards";
   }
+
   if(money >= upgradeMoney2) {
-    Button3.style.animation = "green 5s ease-in-out infinite alternate";
-  } else {
-    Button3.style.animation = "red 5s ease-in-out infinite alternate"
+    Button3.style.animation = "red-green 1s forwards";
   }
+
 }, 200)
+
+function transition() {
+  const Button2 = document.getElementById(`Button2`);
+  const Button3 = document.getElementById(`Button3`);
+  if(money < upgradeMoney) {
+    Button2.style.animation = "green-red 1s forwards";
+  }
+  if(money < upgradeMoney2) {
+    Button3.style.animation = "green-red 1s forwards";
+  }
+}
 
 if ('visibilityState' in document) {
   document.addEventListener('visibilitychange', function() {

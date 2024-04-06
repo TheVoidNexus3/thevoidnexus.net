@@ -1,4 +1,76 @@
 @media screen and (max-width: 910px) {
+
+    @keyframes glow {
+        from {
+            text-shadow: 0 0 10px #ff0800, 0 0 20px #ff0000, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+        }
+        to {
+            text-shadow: 0 0 10px #a3037b, 0 0 20px #f00696, 0 0 40px #000000, 0 0 50px #000000, 0 0 60px #000000, 0 0 70px #eb08a7, 0 0 80px #e40dd2;
+        }
+    }
+    
+    @keyframes move {
+        0% {
+            left: -10%;
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(50px);
+        }
+        100% {
+            left: 110%;
+            transform: translateY(calc(50px + calc(100px * calc(1 - var(--rand)))));
+        }
+    }
+    
+    @keyframes red-green {
+        0% {
+            border-color: darkred;
+            box-shadow: 0 0 20px #ff000080;
+        }
+        100% {
+            border-color: green;
+            box-shadow: 0 0 20px #00ff4055;
+        }
+    }
+    
+    @keyframes green-red {
+        0% {
+            border-color: green;
+            box-shadow: 0 0 20px #00ff4055;
+        }
+        100% {
+            border-color: darkred;
+            box-shadow: 0 0 20px #ff000080;
+        }
+    }
+
+    @keyframes reset {
+        0% {
+            border-color: red;
+            box-shadow: 0 0 20px #ff0000b1;
+            background: transparent;
+        }
+        100% {
+            border-color: white;
+            box-shadow: 0 0 20px #ffffff9c;
+            background-color: rgba(255, 0, 0, 0.658);
+        }
+    }
+    
+    @keyframes reset-fade {
+        0% {
+            border-color: white;
+            box-shadow: 0 0 20px #ffffff9c;
+            background-color: rgba(255, 0, 0, 0.658);
+        }
+        100% {
+            border-color: rgba(255, 17, 0, 0.788);
+            box-shadow: 0 0 20px #ff0000b1;
+            background-color: transparent;
+        }
+    }
+
     body, html {
         -webkit-user-select: none;
         user-select: none;
@@ -25,20 +97,6 @@
         animation: move 10s linear infinite;
       }
     
-      @keyframes move {
-        0% {
-          left: -5%;
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(10px);
-        }
-        100% {
-          left: 110%;
-          transform: translateY(calc(15px + calc(50px * calc(1 - var(--rand)))));
-        }
-      }
-
       .Index {
         display: none;
       }
@@ -52,66 +110,13 @@
         color: whitesmoke;
         animation: glow 2s ease-in-out infinite alternate;
     }
-    
-    @keyframes green {
-      0% {
-          border-color: rgba(9, 255, 0, 0.695);
-          box-shadow: 0 0 15px rgba(9, 255, 0, 0.695);
-      }
-      50% {
-          border-color: #00ff4055;
-          box-shadow: 0 0 20px #00ff4055;
-      }
-      100% {
-          border-color: rgba(9, 255, 0, 0.695);
-          box-shadow: 0 0 15px rgba(9, 255, 0, 0.695);
-      }
-  }
-  
-  @keyframes red {
-      0% {
-          border-color: rgb(255, 0, 0);
-          box-shadow: 0 0 15px rgb(255, 0, 0);
-      }
-      50% {
-          border-color: #ff0000b1;
-          box-shadow: 0 0 20px #ff0000b1;
-      }
-      100% {
-          border-color: rgb(255, 0, 0);
-          box-shadow: 0 0 15px rgb(255, 0, 0);
-      }
-  }
-
-    @keyframes glow {
-        from {
-            text-shadow: 0 0 10px #ff0800, 0 0 20px #ff0000, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
-        }
-        to {
-            text-shadow: 0 0 10px #a3037b, 0 0 20px #f00696, 0 0 40px #000000, 0 0 50px #000000, 0 0 60px #000000, 0 0 70px #eb08a7, 0 0 80px #e40dd2;
-        }
-    }
-    
-    @keyframes glow-border {
-      0% {
-          border-color: rgb(255, 255, 255);
-          box-shadow: 0 0 15px rgb(255, 255, 255);
-      }
-      50% {
-          border-color: #ffffff9c;
-          box-shadow: 0 0 20px #ffffff9c;
-      }
-      100% {
-          border-color: rgb(255, 255, 255);
-          box-shadow: 0 0 15px rgb(255, 255, 255);
-      }
-  }
 
     .Info {
         color: white;
         text-align: center;
         font-size: 150%;
     }
+
 
     .Button1, .Button2, .Button3, .ResetButton{
         width: 80%;
@@ -126,29 +131,25 @@
         margin-bottom: 10px;
         animation: glow-border 5s infinite alternate;
     }
+
+    .Button1 {
+        border-color: rgba(255, 255, 255, 0.795);
+        box-shadow: 0 0 20px #ffffff9c;
+    }
+
     .ResetButton {
         height: 35px;
         font-size: 16px;
         font-weight: bold;
         color: rgba(255, 255, 255, 0.91);
-        border-color: rgba(251, 9, 255, 0.846);
-          background: transparent;
-          border-style: dashed;
-          border-radius: 10px;
-        animation: glow-border 5s infinite alternate;
-    }
+        background: transparent;
+        border-style: dashed;
+        border-radius: 10px;
+        }
 
     .Button1:hover, .Button2:hover, .Button3:hover{
         border-style: dashed;
         opacity: 0.95;
-    }
-
-    .ResetButton:hover {
-        opacity: 0.95;
-        background-color: rgba(255, 0, 0, 0.658);
-        color: rgb(255, 255, 255);
-        border-color: white;
-        border-width: 2px;
     }
 
     .database, .calculator {
@@ -194,4 +195,59 @@
             text-align: center;
             background-color: black;
             z-index: 1;
+        }
+
+        .popup {
+            display: flex;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #0a0909fb;
+            padding: 3%;
+            padding-bottom: 10%;
+            padding-top: 5%;
+            border: 1px solid black;
+            border-radius: 5px;
+            border-color: white;
+            flex-direction: column;
+            align-items: center;
+            z-index: 10;
+          }
+          
+          .PopupText {
+            font-size: 20px;
+            margin-bottom: 40px;
+            color: white;
+            white-space: nowrap;
+          }
+          
+          .buttonContainer {
+            display: flex;
+          }
+          
+          .PopupButton {
+            margin: 0 20px;
+            padding: 15px 40px;
+            background-color: #ff000069;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+          }
+          
+          .PopupButton:hover {
+            background-color: #ff00008f;
+          }
+        
+          .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 9;
         }
