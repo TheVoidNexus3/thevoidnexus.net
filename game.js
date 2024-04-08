@@ -1,4 +1,4 @@
-// Created by TheVoidNexus on 31.01.2024 | Updated: 26.03.2024
+// Created by TheVoidNexus on 31.01.2024 | Updated: 08.04.2024
 
 const MILLISECONDS_PER_SECOND = 1000;
 const UPDATE_INTERVAL = 1000;
