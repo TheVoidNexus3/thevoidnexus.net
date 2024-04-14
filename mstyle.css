@@ -97,10 +97,7 @@
         animation: move 10s linear infinite;
       }
     
-      .Index {
-        display: none;
-      }
-      .indexText {
+      .index-container {
         display: none;
       }
 

@@ -1,4 +1,4 @@
-// Created by TheVoidNexus on 31.01.2024 | Updated: 08.04.2024
+// Created by TheVoidNexus on 31.01.2024 | Updated: 14.04.2024
 
 const MILLISECONDS_PER_SECOND = 1000;
 const UPDATE_INTERVAL = 1000;
@@ -319,3 +319,17 @@ if ('visibilityState' in document) {
       }
   });
 }
+
+setTimeout(function() {
+let indexText = document.getElementById("indexText");
+let lines = indexText.innerHTML.split("<br>");
+let tableHTML = "<table>";
+
+lines.forEach(function(line) {
+    let parts = line.split("-");
+    tableHTML += "<tr><td class=\"indexElement\">" + parts[0].trim() + "</td><td class=\"indexElement\">" + parts[1].trim() + "</td></tr>";
+});
+
+tableHTML += "</table>";
+indexText.innerHTML = tableHTML;
+}, 2000)

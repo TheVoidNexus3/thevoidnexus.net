@@ -97,14 +97,14 @@ body, html {
     background-color: transparent;
     color: white;
     margin-top: 2px;
-    margin-left: 10px;
+    margin-left: 20px;
     height: 30px;
     width: 100px;
-    border-color: gray;
+    border-color: whitesmoke;
     border-radius: 3px;
 }
 .Index:hover {
-    border-color: rgba(236, 235, 235, 0.664);
+    border-color: lightblue;
 }
 
 .index-container {
@@ -112,12 +112,32 @@ body, html {
 }
 
 .indexText {
+    background-color: rgba(0, 0, 0, 0.4);
     text-align: center;
     font-size: 14.5px;
     display: none;
     color: white;
     margin: 5px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.indexElement {
+    padding: 1.5px;
+    padding-right: 10px;
+    border-right: 1px dashed lightgray;
+}
+
+.indexElement:last-child {
+    padding-left: 10px;
+    border-right: none;
+}
+
+.indexElement:hover {
+    color: lightblue;
+}
+
+#indexTable {
+    border-collapse: collapse;
 }
 
 .ClickerTitle {
