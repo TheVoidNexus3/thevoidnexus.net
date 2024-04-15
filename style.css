@@ -289,7 +289,7 @@ body, html {
   }
   
   .PopupText {
-    font-size: 25px;
+    font-size: 30px;
     margin-bottom: 70px;
     color: white;
     white-space: nowrap;
@@ -306,6 +306,7 @@ body, html {
     color: white;
     border: none;
     border-radius: 7px;
+    font-size: 15px;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }

@@ -3,6 +3,6 @@ coded and designed by TheVoidNexus
 <hr>
 This repository contains the source code of <a href="https://thevoidnexus.github.io">thevoidnexus.github.io</a>.<br>
 If you want to contribute, report a bug or just have a suggestion, create an issue and explain it.<br>
-To check recent updates open the commit log or click on the button right next to the current version (above the code files).
+To check recent updates click <a href="https://github.com/TheVoidNexus/thevoidnexus.github.io/commits/main/">here</a>.
 <br>
 Thank you for reading :)
