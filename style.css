@@ -119,7 +119,11 @@ body, html {
     color: white;
     margin: 5px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    overflow-y: auto;
+    max-height: 500px;
+    scrollbar-width: 5px;
 }
+
 
 .indexElement {
     padding: 1.5px;
@@ -134,10 +138,6 @@ body, html {
 
 .indexElement:hover {
     color: lightblue;
-}
-
-#indexTable {
-    border-collapse: collapse;
 }
 
 .ClickerTitle {
