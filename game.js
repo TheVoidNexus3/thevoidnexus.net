@@ -332,4 +332,6 @@ lines.forEach(function(line) {
 
 tableHTML += "</table>";
 indexText.innerHTML = tableHTML;
+let maxHeight = window.outerHeight - 100 + "px"
+indexText.style.maxHeight = maxHeight;
 }, 2000)
