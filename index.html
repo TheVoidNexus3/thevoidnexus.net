@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link id="stylesheet" rel="stylesheet" href="style.css" media="screen and (min-width: 909px)">
     <link id="mstylesheet" rel="stylesheet" href="mstyle.css" media="screen and (max-width: 910px)">
-    <script src="game.js"></script>
-    <script src="init.js"></script>
-    <script src="background.js"></script>
     <title>VoidClicker by TheVoidNexus</title>
 </head>
 <body>
@@ -36,11 +33,17 @@
 <br> <br> <br>
 <button onclick="gameReset()" class="ResetButton" id="reset">Reset Progress</button>
 <div class="popup" id="popup">
+    <img class="warning" src="https://cdn-icons-png.flaticon.com/512/752/752755.png">
     <p class="PopupText">Do you want to reset your progress?</p>
     <div class="buttonContainer">
       <button class="PopupButton" onclick="closePopup()">Cancel</button>
       <button class="PopupButton"onclick="resetProgress()">Confirm</button>
     </div>
   </div>
+<img id="coloricon" class="coloricon" src="https://cdn-icons-png.flaticon.com/128/606/606795.png">
+
+<script src="game.js"></script>
+<script src="init.js"></script>
+<script src="background.js"></script>
 </body>
 </html>

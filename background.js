@@ -29,6 +29,15 @@ function colormode() {
     const stylesheet = document.getElementById('stylesheet');
     const mstylesheet = document.getElementById('mstylesheet');
 
+    let setting = localStorage.getItem('Colormode');
+    if (setting == "dark") {
+        stylesheet.setAttribute('href', 'style.css');
+        mstylesheet.setAttribute('href', 'mstyle.css');
+    } else if (setting == "light") {
+        stylesheet.setAttribute('href', 'lightstyle.css');
+        mstylesheet.setAttribute('href', 'mlightstyle.css');
+    } else {
+
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
     stylesheet.setAttribute('href', 'lightstyle.css');
 } else {
@@ -41,3 +50,21 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matc
     mstylesheet.setAttribute('href', 'mstyle.css');
 }
 }
+}
+const coloricon = document.getElementById('coloricon');
+coloricon.addEventListener("click", function() {
+    let setting = localStorage.getItem('Colormode');
+    if (setting == "light") {
+        localStorage.setItem('Colormode', "dark");
+    } else if (setting == "dark") {
+        localStorage.setItem('Colormode', "light");
+    } else if (setting == null && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        localStorage.setItem('Colormode', "light");
+    } else {
+        localStorage.setItem('Colormode', "dark");
+    }
+
+    colormode();
+})
+
+colormode();

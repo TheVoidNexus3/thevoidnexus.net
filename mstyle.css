@@ -125,7 +125,6 @@
         background-color: transparent;
         border: 2px solid red;
         border-radius: 10px;
-        margin-bottom: 10px;
         animation: glow-border 5s infinite alternate;
     }
 
@@ -136,6 +135,7 @@
 
     .ResetButton {
         height: 35px;
+        width: 80%;
         font-size: 16px;
         font-weight: bold;
         color: rgba(255, 255, 255, 0.91);
@@ -247,4 +247,21 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.7);
             z-index: 9;
+        }
+
+        .coloricon {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            height: 35px;
+            width: 35px;
+            padding: 0px;
+            margin: 0px;
+            z-index: inherit;
+            filter: invert(1);
+            transition: transform 0.3s ease;
+        }
+        
+        .coloricon:hover {
+            transform: scale(1.2);
         }

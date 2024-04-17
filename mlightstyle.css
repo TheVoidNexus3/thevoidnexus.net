@@ -187,15 +187,14 @@ body, html {
 }
 
 .ResetButton {
+    height: 35px;
+    width: 80%;
     font-size: 16px;
     font-weight: bold;
     color: rgba(28, 28, 28, 0.91);
-    width: 80%;
-    height: 100%;
-    padding: 1%;
+    border-color: rgba(255, 17, 0, 0.788);
     display: block;
     margin: 0 auto;
-    border-color: rgba(255, 17, 0, 0.788);
     background: transparent;
     border-style: dashed;
     border-radius: 10px;
@@ -317,4 +316,20 @@ body, html {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 9;
+}
+
+.coloricon {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    height: 35px;
+    width: 35px;
+    padding: 0px;
+    margin: 0px;
+    z-index: inherit;
+    transition: transform 0.3s ease;
+}
+
+.coloricon:hover {
+    transform: scale(1.2);
 }

@@ -247,7 +247,7 @@ body, html {
     width: -moz-fit-content;
     width: fit-content;
     color: whitesmoke;
-    flex-grow: 0.13;
+    flex-grow: 0.25;
 }
 
 .playtime:hover {
@@ -279,6 +279,7 @@ body, html {
     transform: translate(-50%, -50%);
     background-color: #0a0909fb;
     padding: 5%;
+    padding-top: 3%;
     border: 1px solid black;
     border-radius: 5px;
     border-color: white;
@@ -314,6 +315,11 @@ body, html {
     background-color: #ff00008f;
   }
 
+  .warning {
+    width: 25%;
+    height: 50%;
+  }
+
   .overlay {
     display: none;
     position: fixed;
@@ -323,4 +329,21 @@ body, html {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 9;
+}
+
+.coloricon {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    height: 50px;
+    width: 50px;
+    padding: 0px;
+    margin: 0px;
+    z-index: inherit;
+    filter: invert(1);
+    transition: transform 0.3s ease;
+}
+
+.coloricon:hover {
+    transform: scale(1.2);
 }
