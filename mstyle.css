@@ -249,6 +249,11 @@
             z-index: 9;
         }
 
+        .warning {
+            width: 25%;
+            height: 50%;
+          }
+
         .coloricon {
             position: absolute;
             bottom: 10px;
