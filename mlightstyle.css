@@ -1,0 +1,320 @@
+@keyframes glow {
+    from {
+      text-shadow: 0 0 20px lightgreen, 0 0 30px lightgreen
+    }
+    to {
+      text-shadow: 0 0 20px lime, 0 0 30px lime
+    }
+}
+
+@keyframes move {
+    0% {
+        left: -10%;
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(50px);
+    }
+    100% {
+        left: 110%;
+        transform: translateY(calc(50px + calc(100px * calc(1 - var(--rand)))));
+    }
+}
+
+@keyframes red-green {
+    0% {
+        border-color: darkred;
+        box-shadow: 0 0 20px #ff000080;
+    }
+    100% {
+        border-color: green;
+        box-shadow: 0 0 20px #00ff4055;
+    }
+}
+
+@keyframes green-red {
+    0% {
+        border-color: green;
+        box-shadow: 0 0 20px #00ff4055;
+    }
+    100% {
+        border-color: darkred;
+        box-shadow: 0 0 20px #ff000080;
+    }
+}
+
+@keyframes reset {
+    0% {
+        background-color: rgba(255, 17, 0, 0.25);
+        color: black;
+    }
+    
+    100% {
+        border-color: white;
+        color: white;
+        background-color: rgb(193, 0, 0)
+    }
+}
+
+@keyframes reset-fade {
+    0% {
+        border-color: white;
+        color: white;
+        background-color: rgb(193, 0, 0);
+    }
+    100% {
+        color: black;
+        border-color: rgba(255, 17, 0, 0.788);
+        background-color: rgba(255, 17, 0, 0.25);
+    }
+}
+
+body, html {
+    -webkit-user-select: none;
+    user-select: none;
+    touch-action: manipulation;
+    background-color: transparent;
+  }
+
+  .dynamic-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: -1;
+}
+
+.dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    animation: move 10s linear infinite;
+}
+
+.Index {
+    display: none;
+    border-style: solid;
+    background-color: transparent;
+    color: black;
+    margin-top: 2px;
+    margin-left: 20px;
+    height: 30px;
+    width: 100px;
+    border-color: black;
+    border-radius: 3px;
+}
+.Index:hover {
+    border-color: lightseagreen;
+}
+
+.index-container {
+    position: absolute;
+}
+
+.indexText {
+    text-align: center;
+    font-size: 14.5px;
+    display: none;
+    color: black;
+    margin: 5px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    overflow-y: auto;
+    scrollbar-width: 5px;
+}
+
+
+.indexElement {
+    padding: 1.5px;
+    padding-right: 10px;
+    border-right: 1px dashed darkgray;
+}
+
+.indexElement:last-child {
+    padding-left: 10px;
+    border-right: none;
+}
+
+.indexElement:hover {
+    color: lightseagreen;
+}
+
+.ClickerTitle {
+    font-size: 200%;
+    text-align: center;
+    color: rgb(77, 77, 77);
+    animation: glow 3s ease-in-out infinite alternate;
+}
+
+.Info {
+    color: black;
+    text-align: center;
+    font-size: 150%;
+}
+.Button1 {
+    width: 80%;
+    height: auto;
+    font-size: 20px;
+    display: block;
+    margin: 0 auto;
+    color: black;
+    background-color: rgb(0,0,0,0.05);
+    border-color: rgb(109, 109, 109);
+    border-radius: 10px;
+    border-style: solid;
+    box-shadow: 0 0 20px #ffffff9c;
+}
+.Button1:hover {
+    opacity: 0.75;
+}
+
+.Button2, .Button3 {
+    width: 80%;
+    height: auto;
+    font-size: 20px;
+    display: block;
+    margin: 0 auto;
+    color: black;
+    background-color: rgb(0,0,0,0.05);
+    border-color: red;
+    border-radius: 10px;
+    border-style: solid;
+}
+.Button2:hover, .Button3:hover {
+    opacity: 0.75;
+}
+
+.ResetButton {
+    font-size: 16px;
+    font-weight: bold;
+    color: rgba(28, 28, 28, 0.91);
+    width: 80%;
+    height: 100%;
+    padding: 1%;
+    display: block;
+    margin: 0 auto;
+    border-color: rgba(255, 17, 0, 0.788);
+    background: transparent;
+    border-style: dashed;
+    border-radius: 10px;
+    transition: reset-fade 1s ease;
+}
+
+.ResetButton:hover {
+   animation: reset 1s forwards alternate;
+}
+
+.ResetButton:not(:hover) {
+   animation: reset-fade 1s forwards;
+}
+
+.database, .calculator {
+    width: 40%;
+    height: 23px;
+    border: solid black;
+    border-radius: 20px;
+    border-width: 2px;
+    color: black;
+    background: transparent;
+    display: inline-table;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.database:hover, .calculator:hover {
+    opacity: 0.9;
+    border-color: lightseagreen;
+}
+
+.main {
+    display: inline-block;
+    text-decoration: none;
+    margin: 0;
+    font-size: 25px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+    flex-grow: 1;
+}
+.main:hover {
+    color: lightseagreen;
+}
+
+.playtime {
+    display: flex;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0 auto;
+    width: -moz-fit-content;
+    width: fit-content;
+    color: black;
+    flex-grow: 0.25;
+}
+
+.playtime:hover {
+    color: lightseagreen;
+}
+
+.container, .container2 {
+    display: block;
+    text-align: center;
+    background-color: white;
+    z-index: 1;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 3%;
+    padding-bottom: 10%;
+    padding-top: 5%;
+    border: 4px solid;
+    border-radius: 5px;
+    border-color: gray;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+  }
+  
+  .PopupText {
+    font-size: 20px;
+    margin-bottom: 40px;
+    color: black;
+    white-space: nowrap;
+  }
+  
+  .buttonContainer {
+    display: flex;
+  }
+  
+  .PopupButton {
+    margin: 0 20px;
+    padding: 15px 40px;
+    background-color: #ff0000c9;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .PopupButton:hover {
+    background-color: #b80202;
+  }
+
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9;
+}

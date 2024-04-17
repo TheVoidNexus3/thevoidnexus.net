@@ -18,3 +18,26 @@ function createDot() {
 setInterval(function() {
     createDot();
 }, 750);
+
+
+setInterval(function() {
+    colormode()
+},10000)
+
+
+function colormode() {
+    const stylesheet = document.getElementById('stylesheet');
+    const mstylesheet = document.getElementById('mstylesheet');
+
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+    stylesheet.setAttribute('href', 'lightstyle.css');
+} else {
+    stylesheet.setAttribute('href', 'style.css');
+}
+
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+    mstylesheet.setAttribute('href', 'mlightstyle.css');
+} else {
+    mstylesheet.setAttribute('href', 'mstyle.css');
+}
+}
