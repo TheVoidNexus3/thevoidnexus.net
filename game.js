@@ -1,4 +1,4 @@
-// Created by TheVoidNexus on 31.01.2024 | Updated: 14.04.2024
+// Created by TheVoidNexus on 31.01.2024 | Updated: 17.04.2024
 
 const MILLISECONDS_PER_SECOND = 1000;
 const UPDATE_INTERVAL = 1000;
@@ -302,36 +302,40 @@ function transition() {
   }
 }
 
-if ('visibilityState' in document) {
-  document.addEventListener('visibilitychange', function() {
-      if (document.visibilityState === 'hidden') {
-        save.money = money;
-        save.upgradeMoney = upgradeMoney;
-        save.upgradeMoney2 = upgradeMoney2;
-        save.MPS = MPS;
-        save.MPC = MPC;
-        save.totalClicks = totalClicks;
-        save.seconds = playtimeSeconds;
-        save.minutes = playtimeMinutes;
-        save.hours = playtimeHours;
-        const jsonString = JSON.stringify(save);
-        localStorage.setItem(`Saved`, jsonString);
-      }
+setTimeout(function() {
+  let indexText = document.getElementById("indexText");
+  let lines = indexText.innerHTML.split("<br>");
+  let tableHTML = "<table>";
+
+  lines.forEach(function(line) {
+      let parts = line.split("-");
+      tableHTML += "<tr><td class=\"indexElement\">" + parts[0].trim() + "</td><td class=\"indexElement\">" + parts[1].trim() + "</td></tr>";
   });
+
+  tableHTML += "</table>";
+  indexText.innerHTML = tableHTML;
+
+}, 250);
+
+function updateMaxHeight(indexText) {
+  let contentHeight = indexText.clientHeight;
+  let windowHeight = window.innerHeight;
+  let maxHeightPercentage = 82;
+  let maxHeight = (windowHeight * maxHeightPercentage / 100) + "px";
+  
+  if (contentHeight >= windowHeight) {
+      indexText.style.overflowY = "hidden";
+  } else {
+      indexText.style.overflowY = "auto";
+  }
+  
+  indexText.style.maxHeight = maxHeight;
 }
 
-setTimeout(function() {
-let indexText = document.getElementById("indexText");
-let lines = indexText.innerHTML.split("<br>");
-let tableHTML = "<table>";
-
-lines.forEach(function(line) {
-    let parts = line.split("-");
-    tableHTML += "<tr><td class=\"indexElement\">" + parts[0].trim() + "</td><td class=\"indexElement\">" + parts[1].trim() + "</td></tr>";
+window.addEventListener("resize", function() {
+  updateMaxHeight(document.getElementById('indexText'));
 });
 
-tableHTML += "</table>";
-indexText.innerHTML = tableHTML;
-let maxHeight = window.outerHeight - 100 + "px"
-indexText.style.maxHeight = maxHeight;
-}, 2000)
+window.addEventListener("load", function() {
+  updateMaxHeight(document.getElementById('indexText'))
+})
