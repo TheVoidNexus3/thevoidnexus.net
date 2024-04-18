@@ -59,9 +59,9 @@ coloricon.addEventListener("click", function() {
     } else if (setting == "dark") {
         localStorage.setItem('Colormode', "light");
     } else if (setting == null && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-        localStorage.setItem('Colormode', "light");
-    } else {
         localStorage.setItem('Colormode', "dark");
+    } else {
+        localStorage.setItem('Colormode', "light");
     }
 
     colormode();
