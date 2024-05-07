@@ -3,11 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link id="stylesheet" rel="stylesheet" href="style.css" media="screen and (min-width: 909px)">
-    <link id="mstylesheet" rel="stylesheet" href="mstyle.css" media="screen and (max-width: 910px)">
+    <link id="stylesheet" rel="stylesheet" href="style.css" media="screen and (min-width: 709px)">
+    <link id="mstylesheet" rel="stylesheet" href="mstyle.css" media="screen and (max-width: 710px)">
     <title>VoidClicker by TheVoidNexus</title>
 </head>
 <body>
+  <div id="loading" class="loading"></div>
+    <div id="pfpInfo" class="pfpInfo">
+        <p id="username" class="username"></p>
+        <button id="signout" class="signout">Sign Out</button>
+        <br>
+        <button id="export" class="export">Save Data</button>
+        <button id="import" class="import">Fetch Data</button>
+    </div>
+    <div id="toast" class="toast"></div>
+    <div class="overlay" id="overlay"></div>
 <div class="overlay" id="overlay"></div>
 <div class="dynamic-background"></div>
 <div class="container">
@@ -16,6 +26,10 @@
     <div class="container2">
         <button onclick="redirect()" class="database">Database</button>
         <button onclick="redirect2()" class="calculator">Calculator</button>
+        <button class="google-log-in" id="login">Log in</button>
+            <div class="buttons-container">
+            <img id="pfp" class="pfp" alt="">
+        </div>
     </div>
 </div>
 <hr class="line">
@@ -45,5 +59,6 @@
 <script src="game.js"></script>
 <script src="init.js"></script>
 <script src="background.js"></script>
+<script src="firebase.js" type="module"></script>
 </body>
 </html>

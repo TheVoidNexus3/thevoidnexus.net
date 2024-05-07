@@ -15,6 +15,19 @@ setInterval(function() {
     playtimeHours++;
   }
   update();
+
+  save.money = money;
+  save.upgradeMoney = upgradeMoney;
+  save.upgradeMoney2 = upgradeMoney2;
+  save.MPS = MPS;
+  save.MPC = MPC;
+  save.totalClicks = totalClicks;
+  save.seconds = playtimeSeconds;
+  save.minutes = playtimeMinutes;
+  save.hours = playtimeHours;
+  const jsonString = JSON.stringify(save);
+  localStorage.setItem(`Data`, jsonString);
+
 }, UPDATE_INTERVAL);
 
 window.onbeforeunload = function() {
@@ -28,7 +41,7 @@ window.onbeforeunload = function() {
   save.minutes = playtimeMinutes;
   save.hours = playtimeHours;
   const jsonString = JSON.stringify(save);
-  localStorage.setItem(`Saved`, jsonString);
+  localStorage.setItem(`Data`, jsonString);
   return null;
 };
 

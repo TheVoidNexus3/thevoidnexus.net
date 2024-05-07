@@ -5,7 +5,7 @@ const savedMPS = "savedMPS";
 const savedMPC = "savedMPC";
 const savedClicks = "savedClicks";
 
-let jsonString = localStorage.getItem(`Saved`);
+let jsonString = localStorage.getItem(`Data`);
 let save = JSON.parse(jsonString) || {};
 
 let money = +save.money || 0;

@@ -68,3 +68,15 @@ coloricon.addEventListener("click", function() {
 })
 
 colormode();
+
+document.addEventListener("DOMContentLoaded", function() {
+    window.addEventListener("load", function() {
+        const loading = document.getElementById("loading");
+        setTimeout(function() {
+            loading.style.opacity = 0;
+            setTimeout(() => {
+                loading.style.display = "none";
+            }, 1000)
+        }, 1000);
+    });
+});
