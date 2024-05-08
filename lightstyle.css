@@ -249,7 +249,6 @@ body, html {
     width: -moz-fit-content;
     width: fit-content;
     color: black;
-    flex-grow: 0.25;
 }
 
 .playtime:hover {
