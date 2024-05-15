@@ -256,8 +256,14 @@ function clickerUpgrade2() {
 }
 
 function gameReset() {
-  const overlay = document.getElementById('overlay');
+  const overlay = document.getElementById('overlay2');
   const popup = document.getElementById('popup');
+
+  overlay.addEventListener("click", function() {
+    popup.style.display = "none";
+    overlay.style.display = "none";
+  })
+
   popup.style.display = "flex";
   overlay.style.display = "flex";
 }
@@ -280,7 +286,7 @@ function resetProgress() {
 }
 
 function closePopup() {
-  const overlay = document.getElementById('overlay');
+  const overlay = document.getElementById('overlay2');
   const popup = document.getElementById('popup');
   popup.style.display = "none";
   overlay.style.display = "none";

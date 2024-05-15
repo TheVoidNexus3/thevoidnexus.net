@@ -289,8 +289,8 @@ body, html {
   }
   
   .PopupText {
-    font-size: 30px;
-    margin-bottom: 70px;
+    font-size: 25px;
+    margin-bottom: 35px;
     color: black;
     white-space: nowrap;
   }
@@ -454,3 +454,14 @@ body, html {
     padding: 8px;
     padding-right: 5px;
   }
+
+  .overlay2 {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9;
+}

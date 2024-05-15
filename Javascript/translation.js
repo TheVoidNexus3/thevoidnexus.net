@@ -32,6 +32,9 @@ const translations = {
         "not_authenticated": "You are not authenticated.",
         "login": "Login",
         "title": "VoidClicker by TheVoidNexus",
+        "popupText": "Do you really want to reset your progress?",
+        "cancel": "Cancel",
+        "confirm": "Confirm",
     },
     "de": {
         "balance": "Kontostand",
@@ -66,6 +69,9 @@ const translations = {
         "not_authenticated": "Du bist nicht authentifiziert.",
         "login": "Einloggen",
         "title": "VoidClicker von TheVoidNexus",
+        "popupText": "Möchtest du deinen Fortschritt wirklich zurücksetzen?",
+        "cancel": "Abbrechen",
+        "confirm": "Bestätigen",
     },
     "sv": {
         "balance": "Balans",
@@ -100,6 +106,9 @@ const translations = {
         "not_authenticated": "Du är inte autentiserad.",
         "login": "Logga in",
         "title": "VoidClicker av TheVoidNexus",
+        "popupText": "Vill du verkligen återställa dina framsteg?",
+        "cancel": "Avbryt",
+        "confirm": "Bekräfta",
     }
 };
 
@@ -115,6 +124,10 @@ function setLanguage(lang) {
     const exportT = document.getElementById("export")
     const importT = document.getElementById("import")
     const login = document.getElementById("login");
+    const popupText = document.getElementById("PopupText");
+    const cancel = document.getElementById("cancel");
+    const confirm = document.getElementById("confirm");
+
     reset.innerHTML = translations[language].reset;
     database.innerHTML = translations[language].database
     calculator.innerHTML = translations[language].calculator
@@ -122,6 +135,9 @@ function setLanguage(lang) {
     exportT.innerHTML = translations[language].export
     importT.innerHTML = translations[language].import
     login.innerHTML = translations[language].login
+    popupText.innerHTML = translations[language].popupText
+    cancel.innerHTML = translations[language].cancel
+    confirm.innerHTML = translations[language].confirm
 
     const select = document.getElementById('language-select');
     select.options[0].innerHTML = translations[language].english

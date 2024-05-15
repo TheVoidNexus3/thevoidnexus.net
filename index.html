@@ -21,6 +21,7 @@
     </div>
     <div id="toast" class="toast"></div>
     <div class="overlay" id="overlay"></div>
+    <div class="overlay2" id="overlay2"></div>
 <div class="overlay" id="overlay"></div>
 <div class="dynamic-background"></div>
 <div class="container">
@@ -56,10 +57,10 @@
 <button onclick="gameReset()" class="ResetButton" id="reset">Reset Progress</button>
 <div class="popup" id="popup">
     <img class="warning" src="https://cdn-icons-png.flaticon.com/512/752/752755.png">
-    <p class="PopupText">Do you want to reset your progress?</p>
+    <p class="PopupText" id="PopupText">Do you want to reset your progress?</p>
     <div class="buttonContainer">
-      <button class="PopupButton" onclick="closePopup()">Cancel</button>
-      <button class="PopupButton"onclick="resetProgress()">Confirm</button>
+      <button id="cancel" class="PopupButton" onclick="closePopup()">Cancel</button>
+      <button id="confirm" class="PopupButton" onclick="resetProgress()">Confirm</button>
     </div>
   </div>
 <img id="coloricon" class="coloricon" src="https://cdn-icons-png.flaticon.com/128/606/606795.png" alt="Toggle Darkmode/Lightmode">
