@@ -18,6 +18,7 @@ const translations = {
         "username": "Logged in as <strong>",
         "english": "English",
         "german": "German",
+        "swedish": "Swedish",
         "logged_in": "You are logged in as <strong>",
         "error": "An error occured.",
         "exportConfirm": "This action will override the stats saved in the database. Do you want to continue?",
@@ -51,6 +52,7 @@ const translations = {
         "username": "Eingeloggt als <strong>",
         "english": "Englisch",
         "german": "Deutsch",
+        "swedish": "Schwedisch",
         "logged_in": "Du bist eingeloggt als <strong>",
         "error": "Ein Fehler ist aufgetreten.",
         "exportConfirm": "Diese Aktion wird den in der Datenbasis gespeicherten Fortschritt überschreiben. Möchtest du fortfahren?",
@@ -64,6 +66,40 @@ const translations = {
         "not_authenticated": "Du bist nicht authentifiziert.",
         "login": "Einloggen",
         "title": "VoidClicker von TheVoidNexus",
+    },
+    "sv": {
+        "balance": "Balans",
+        "second": "Pengar per sekund",
+        "click": "Per klick",
+        "earn_money": "Tjäna pengar",
+        "total_clicks": "Totalt antal klick",
+        "money_per_second": "Pengar per sekund",
+        "cost": "Kostnad",
+        "money_per_click": "Pengar per klick",
+        "playtime": "Speltid",
+        "reset": "Återställ framsteg",
+        "database": "Databas",
+        "calculator": "Kalkylator",
+        "signOut": "Logga ut",
+        "export": "Spara data",
+        "import": "Hämta data",
+        "username": "Inloggad som <strong>",
+        "english": "Engelska",
+        "german": "Tyska",
+        "swedish": "Svenska",
+        "logged_in": "Du är inloggad som <strong>",
+        "error": "Ett fel inträffade.",
+        "exportConfirm": "Denna åtgärd kommer att åsidosätta statistiken som sparats i databasen. Vill du fortsätta?",
+        "importConfirm": "Denna åtgärd kommer att åsidosätta din nuvarande statistik. Vill du fortsätta?",
+        "cancelled": "Åtgärden avbröts.",
+        "imported": "Data framgångsrikt laddad från databasen.",
+        "exported": "Data framgångsrikt sparas i databasen.",
+        "empty": "Inga data hittades i databasen.",
+        "logged_out": "Utloggning lyckades.",
+        "not_logged_in": "Du är inte inloggad.",
+        "not_authenticated": "Du är inte autentiserad.",
+        "login": "Logga in",
+        "title": "VoidClicker av TheVoidNexus",
     }
 };
 
@@ -90,9 +126,14 @@ function setLanguage(lang) {
     const select = document.getElementById('language-select');
     select.options[0].innerHTML = translations[language].english
     select.options[1].innerHTML = translations[language].german
+    select.options[2].innerHTML = translations[language].swedish
 
     if(language == "de") {
         select.options[1].selected = true;
+    }
+
+    if(language == "sv") {
+        select.options[2].selected = true;
     }
 
     document.title = translations[language].title
