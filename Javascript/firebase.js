@@ -10,7 +10,8 @@ const firebaseConfig = {
   storageBucket: "thevoidclicker.appspot.com",
   messagingSenderId: "394237974349",
   appId: "1:394237974349:web:c645d91eff47a8b0b30904",
-  measurementId: "G-NYD0V53G7R"
+  measurementId: "G-NYD0V53G7R",
+  languageCode: language,
 }
 
 const app = initializeApp(firebaseConfig);
@@ -19,7 +20,7 @@ const database = getDatabase(app);
 
 const provider = new GoogleAuthProvider();
 
-auth.languageCode = 'en';
+auth.languageCode = language;
 
 const googleLogin = document.getElementById("login");
 
@@ -37,7 +38,7 @@ googleLogin.addEventListener("click", function() {
             const errorMessage = error.message;
             console.error(errorCode);
             console.error(errorMessage);
-            showToast("An error occurred", 3000, "warning");
+            showToast(translations[language].error, 3000, "warning");
         });
 });
 
@@ -67,7 +68,7 @@ function successfulLogin(user) {
             console.error("Error fetching data:", error);
         });
 
-    const loginMessage = "You are logged in as <strong>" + username + "</strong>.";
+    const loginMessage = translations[language].logged_in + username + "</strong>.";
     showToast(loginMessage, 3000, "success");
 }
 
@@ -78,14 +79,14 @@ function successfulLogout() {
     googleLogin.style.display = "inline-block";
     pfp.style.display = "none";
 
-    showToast("Successfully logged out.", 3000, "info");
+    showToast(translations[language].logged_out, 3000, "info");
 }
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
         successfulLogin(user);
     } else {
-        showToast("You are not logged in.", 3000, "info");
+        showToast(translations[language].not_logged_in, 3000, "info");
     }
 });
 
@@ -102,7 +103,9 @@ pfp.addEventListener("click", () => {
 
     popup.style.display = "block";
     usernamePopup.style.display = "block";
-    usernamePopup.innerHTML = "Logged in as <strong>" + username + "</strong>";
+
+
+    usernamePopup.innerHTML = translations[language].username + username + "</strong>";
 
     signoutButton.addEventListener("click", () => {
         auth.signOut().then(() => {
@@ -111,7 +114,7 @@ pfp.addEventListener("click", () => {
             overlay.style.display = "none";
         }).catch((error) => {
             console.error(error);
-            showToast("An error occured.", 3000, "warning");
+            showToast(translations[language].error, 3000, "warning");
         });
     });
 });
@@ -123,8 +126,8 @@ overlay.addEventListener("click", () => {
 
 const exportButton = document.getElementById("export");
 exportButton.addEventListener("click", () => {
-    if (!confirm("This action will override the stats saved in the database. Do you want to continue?")) {
-        showToast("Operation cancelled.", 3000, "info");
+    if (!confirm(translations[language].exportConfirm)) {
+        showToast(translations[language].cancelled, 3000, "info");
         popup.style.display = "none";
         overlay.style.display = "none";
         return;
@@ -144,25 +147,25 @@ function exportData(type) {
         set(databaseRef, databaseObject)
             .then(() => {
                 if (type != "auto") {
-                    showToast("Data successfully saved in the database.", 3000, "success");
+                    showToast(translations[language].exported, 3000, "success");
                 }
             })
             .catch((error) => {
                 console.error("Error exporting data:", error);
-                showToast("An error occured.", 3000, "warning");
+                showToast(translations[language].error, 3000, "warning");
             });
 
         popup.style.display = "none";
         overlay.style.display = "none";
     } else {
-        showToast("You are not authenticated.", 3000, "warning");
+        showToast(translations[language].not_authenticated, 3000, "warning");
     }
 }
 
 const importButton = document.getElementById("import");
 importButton.addEventListener("click", () => {
-    if (!confirm("This action will override your current stats. Do you want to continue?")) {
-        showToast("Operation cancelled.", 3000, "info");
+    if (!confirm(translations[language].importConfirm)) {
+        showToast(translations[language].cancelled, 3000, "info");
         popup.style.display = "none";
         overlay.style.display = "none";
         return;
@@ -192,25 +195,24 @@ function importData(type) {
                     playtimeMinutes = databaseObject.minutes;
                     playtimeHours = databaseObject.hours;
                     if (type != "auto") {
-                        showToast("Data successfully loaded from the database.", 3000, "success");
+                        showToast(translations[language].imported, 3000, "success");
                     }
                 } else {
-                    showToast("No data found in the database.", 3000, "info");
+                    showToast(translations[language].empty, 3000, "info");
                 }
                 popup.style.display = "none";
                 overlay.style.display = "none";
             })
             .catch((error) => {
                 console.error("Error importing data:", error);
-                showToast("An error occured.", 3000, "warning");
+                showToast(translations[language].error, 3000, "warning");
             });
     } else {
-        console.error("User not authenticated.");
-        showToast("You are not authenticated.", 3000, "warning");
+        showToast(translations[language].not_authenticated, 3000, "warning");
     }
 }
 
-window.onbeforeunload = async function() {
+window.unload = async function() {
     const user = auth.currentUser;
 
     if (user) {
@@ -224,7 +226,6 @@ window.onbeforeunload = async function() {
             }
         }
     }
-    return null;
 };
 
 function showToast(message, duration, type) {

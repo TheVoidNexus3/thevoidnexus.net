@@ -23,3 +23,5 @@ let moneySuffix3 = "";
 let playtimeHours = +save.hours || 0;
 let playtimeMinutes = +save.minutes || 0;
 let playtimeSeconds = +save.seconds || 0;
+
+let language = localStorage.getItem("PreferredLanguage") || "en";

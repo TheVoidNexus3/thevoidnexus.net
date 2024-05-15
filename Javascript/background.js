@@ -31,23 +31,23 @@ function colormode() {
 
     let setting = localStorage.getItem('Colormode');
     if (setting == "dark") {
-        stylesheet.setAttribute('href', 'style.css');
-        mstylesheet.setAttribute('href', 'mstyle.css');
+        stylesheet.setAttribute('href', 'CSS/style.css');
+        mstylesheet.setAttribute('href', 'CSS/mstyle.css');
     } else if (setting == "light") {
-        stylesheet.setAttribute('href', 'lightstyle.css');
-        mstylesheet.setAttribute('href', 'mlightstyle.css');
+        stylesheet.setAttribute('href', 'CSS/lightstyle.css');
+        mstylesheet.setAttribute('href', 'CSS/mlightstyle.css');
     } else {
 
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-    stylesheet.setAttribute('href', 'lightstyle.css');
+    stylesheet.setAttribute('href', 'CSS/lightstyle.css');
 } else {
-    stylesheet.setAttribute('href', 'style.css');
+    stylesheet.setAttribute('href', 'CSS/style.css');
 }
 
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-    mstylesheet.setAttribute('href', 'mlightstyle.css');
+    mstylesheet.setAttribute('href', 'CSS/mlightstyle.css');
 } else {
-    mstylesheet.setAttribute('href', 'mstyle.css');
+    mstylesheet.setAttribute('href', 'CSS/mstyle.css');
 }
 }
 }

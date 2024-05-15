@@ -1,9 +1,9 @@
 @keyframes glow {
     from {
-      text-shadow: 0 0 20px gray, 0 0 30px gray
+      text-shadow: 0 0 10px #ff0800, 0 0 20px #ff0000, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
     }
     to {
-      text-shadow: 0 0 20px rgb(153, 153, 153), 0 0 30px rgb(153, 153, 153)
+      text-shadow: 0 0 10px #a3037b, 0 0 20px #f00696, 0 0 40px #000000, 0 0 50px #000000, 0 0 60px #000000, 0 0 70px #eb08a7, 0 0 80px #e40dd2;
     }
 }
 
@@ -25,12 +25,10 @@
     0% {
         border-color: darkred;
         box-shadow: 0 0 20px #ff000080;
-        background-color: #ff000020;
     }
     100% {
         border-color: green;
         box-shadow: 0 0 20px #00ff4055;
-        background-color: #00ff4015;
     }
 }
 
@@ -38,38 +36,31 @@
     0% {
         border-color: green;
         box-shadow: 0 0 20px #00ff4055;
-        background-color: #00ff4015;
     }
     100% {
         border-color: darkred;
         box-shadow: 0 0 20px #ff000080;
-        background-color: #ff000020;
     }
 }
 
 @keyframes reset {
-    0% {
-        background-color: rgba(255, 17, 0, 0.25);
-        color: black;
-    }
-    
     100% {
         border-color: white;
-        color: white;
-        background-color: rgb(193, 0, 0)
+        box-shadow: 0 0 20px #ffffff9c;
+        background-color: rgba(255, 0, 0, 0.658);
     }
 }
 
 @keyframes reset-fade {
     0% {
         border-color: white;
-        color: white;
-        background-color: rgb(193, 0, 0);
+        box-shadow: 0 0 20px #ffffff9c;
+        background-color: rgba(255, 0, 0, 0.658);
     }
     100% {
-        color: black;
         border-color: rgba(255, 17, 0, 0.788);
-        background-color: rgba(255, 17, 0, 0.25);
+        box-shadow: 0 0 20px #ff0000b1;
+        background-color: transparent;
     }
 }
 
@@ -85,8 +76,12 @@ body, html {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgb(239, 239, 239);
+    background-color: black;
     z-index: -1;
+}
+
+.line:hover {
+    border-color: lightblue;
 }
 
 .dot {
@@ -100,16 +95,16 @@ body, html {
 .Index {
     border-style: solid;
     background-color: transparent;
-    color: black;
+    color: white;
     margin-top: 2px;
     margin-left: 20px;
     height: 30px;
     width: 100px;
-    border-color: black;
+    border-color: whitesmoke;
     border-radius: 3px;
 }
 .Index:hover {
-    border-color: lightseagreen;
+    border-color: lightblue;
 }
 
 .index-container {
@@ -117,10 +112,11 @@ body, html {
 }
 
 .indexText {
+    background-color: rgba(0, 0, 0, 0.4);
     text-align: center;
     font-size: 14.5px;
     display: none;
-    color: black;
+    color: white;
     margin: 5px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     overflow-y: auto;
@@ -131,7 +127,7 @@ body, html {
 .indexElement {
     padding: 1.5px;
     padding-right: 10px;
-    border-right: 1px dashed darkgray;
+    border-right: 1px dashed lightgray;
 }
 
 .indexElement:last-child {
@@ -140,18 +136,18 @@ body, html {
 }
 
 .indexElement:hover {
-    color: lightseagreen;
+    color: lightblue;
 }
 
 .ClickerTitle {
     font-size: 200%;
     text-align: center;
-    color: black;
-    animation: glow 3s ease-in-out infinite alternate;
+    color: whitesmoke;
+    animation: glow 2s ease-in-out infinite alternate;
 }
 
 .Info {
-    color: black;
+    color: white;
     text-align: center;
     font-size: 150%;
 }
@@ -161,15 +157,15 @@ body, html {
     font-size: 25px;
     display: block;
     margin: 0 auto;
-    color: black;
-    background-color: rgb(0,0,0,0.01);
-    border-color: rgb(43, 43, 43);
+    color: white;
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.795);
     border-radius: 10px;
     border-style: solid;
-    box-shadow: 0 0 20px #4d4c4c86;
+    box-shadow: 0 0 20px #ffffff9c;
 }
 .Button1:hover {
-    opacity: 0.75;
+    opacity: 0.8;
 }
 
 .Button2, .Button3 {
@@ -178,54 +174,56 @@ body, html {
     font-size: 25px;
     display: block;
     margin: 0 auto;
-    color: black;
-    background-color: rgb(0,0,0,0);
+    color: white;
+    background-color: transparent;
     border-color: red;
     border-radius: 10px;
     border-style: solid;
 }
 .Button2:hover, .Button3:hover {
-    opacity: 0.75;
+    opacity: 0.8;
 }
 
 .ResetButton {
     font-size: 16px;
     font-weight: bold;
-    color: rgba(28, 28, 28, 0.91);
+    color: rgba(255, 255, 255, 0.91);
     width: 40%;
     height: 100%;
     padding: 1%;
     display: block;
     margin: 0 auto;
     border-color: rgba(255, 17, 0, 0.788);
+    box-shadow: 0 0 20px #ff0000b1;
     background: transparent;
     border-style: dashed;
     border-radius: 10px;
-    transition: reset-fade 1s ease;
+    transition: reset-fade 0.5s ease;
 }
 
 .ResetButton:hover {
-   animation: reset 1s forwards alternate;
+   animation: reset 0.5s forwards alternate;
 }
 
 .ResetButton:not(:hover) {
-   animation: reset-fade 1s forwards;
+   animation: reset-fade 0.5s forwards;
 }
 
 .database, .calculator {
     width: 25%;
     height: 40px;
-    border: solid black;
+    border: solid lightgray;
     border-radius: 20px;
     border-width: 2px;
-    color: black;
+    color: whitesmoke;
     background: transparent;
     display:inline-table;
 }
 
 .database:hover, .calculator:hover {
     opacity: 0.9;
-    border-color: lightseagreen;
+    border-color: lightblue;
+    color: lightblue;
 }
 
 .main {
@@ -234,11 +232,11 @@ body, html {
     margin: 0;
     font-size: 25px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: black;
+    color: white;
     flex-grow: 1;
 }
 .main:hover {
-    color: lightseagreen;
+    color: lightblue;
 }
 
 .playtime {
@@ -248,18 +246,19 @@ body, html {
     margin: 0 auto;
     width: -moz-fit-content;
     width: fit-content;
-    color: black;
+    color: whitesmoke;
+    margin-left: 15px;
 }
 
 .playtime:hover {
-    color: lightseagreen;
+    color: lightblue;
 }
 
 .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(239, 239, 239);
+    background-color: black;
     z-index: 1;
 }
 
@@ -268,7 +267,7 @@ body, html {
     justify-content: flex-end;
     align-items: center;
     flex-grow: 1;
-    background-color: rgb(239, 239, 239);
+    background-color: black;
     z-index: 1;
 }
 
@@ -278,11 +277,12 @@ body, html {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgb(239, 239, 239);
+    background-color: #0a0909fb;
     padding: 5%;
-    border: 4px solid;
+    padding-top: 3%;
+    border: 1px solid black;
     border-radius: 5px;
-    border-color: gray;
+    border-color: white;
     flex-direction: column;
     align-items: center;
     z-index: 10;
@@ -291,7 +291,7 @@ body, html {
   .PopupText {
     font-size: 30px;
     margin-bottom: 70px;
-    color: black;
+    color: white;
     white-space: nowrap;
   }
   
@@ -302,7 +302,7 @@ body, html {
   .PopupButton {
     margin: 0 20px;
     padding: 20px 60px;
-    background-color: #ff0000c9;
+    background-color: #ff000069;
     color: white;
     border: none;
     border-radius: 7px;
@@ -312,7 +312,12 @@ body, html {
   }
   
   .PopupButton:hover {
-    background-color: #b80202;
+    background-color: #ff00008f;
+  }
+
+  .warning {
+    width: 25%;
+    height: 50%;
   }
 
   .overlay {
@@ -326,11 +331,6 @@ body, html {
     z-index: 9;
 }
 
-.warning {
-    width: 25%;
-    height: 50%;
-  }
-
 .coloricon {
     position: absolute;
     bottom: 10px;
@@ -340,24 +340,25 @@ body, html {
     padding: 0px;
     margin: 0px;
     z-index: inherit;
+    filter: invert(1);
     transition: transform 0.3s ease;
 }
 
 .coloricon:hover {
-    transform: scale(1.2);
+    transform: scale(1.3);
 }
 
-.google-log-in {
+  .google-log-in {
     border-radius: 15px;
     background-color: transparent;
-    border-color: rgb(90, 160, 183);
-    color: black;
+    border-color: lightblue;
+    color: white;
     padding: 10px;
     margin-left: 50px;
   }
 
   .google-log-in:hover {
-    border-color: rgb(32, 81, 98);
+    border-color: rgb(219, 246, 255);
     opacity: 0.8;
   }
 
@@ -374,10 +375,10 @@ body, html {
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 70px;
-  background-color: rgb(239, 239, 239);
-  border: 2px solid rgb(168, 168, 168);
+  background-color: rgb(0, 0, 0);
+  border: 2px solid rgb(80, 80, 80);
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(213, 213, 213, 0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   z-index: 100;
   max-width: 300px;
   width: 100%;
@@ -386,27 +387,27 @@ body, html {
 .signout, .import, .export {
   margin-top: 10px;
   background-color: transparent;
-  border: 2px solid rgb(0, 177, 177);
+  border: 2px solid darkcyan;
   border-radius: 10px;
   padding: 10px 20px;
-  color: black;
+  color: white;
 }
 
 .signout:hover, .import:hover, .export:hover {
-  border-color: darkcyan;
+  border-color: rgb(0, 177, 177);
 }
 
 .username {
   font-size: 20px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: black;
+  color: white;
   margin-bottom: 20px;
   white-space: inherit;
 }
 
 .toast {
   position: fixed;
-  top: 75px;
+  top: 113px;
   right: 10px;
   color: white;
   padding: 10px 20px;
@@ -422,7 +423,7 @@ body, html {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgb(239, 239, 239);
+  background-color: black;
   z-index: 9999;
   opacity: 1;
   transition: opacity 1s ease;
@@ -431,12 +432,26 @@ body, html {
 .pfp {
     display: inline-block;
     border-radius: 50%;
-    border: 3px rgb(239, 239, 239) solid;
+    border: 3px black solid;
     width: 35%;
     height: 35%;
     margin-left: auto;
 }
 
   .pfp:hover {
-    border: 3px solid rgb(186, 186, 186);
+    border: 3px solid rgb(90, 90, 90);
+  }
+
+  .language-select {
+    position: absolute;
+    right: 0;
+    margin-top: 2px;
+    margin-right: 20px;
+
+    border-color: white;
+    border-radius: 10px;
+    background-color: transparent;
+    color: white;
+    padding: 8px;
+    padding-right: 5px;
   }

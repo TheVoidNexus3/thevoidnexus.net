@@ -175,7 +175,7 @@ function moneyRounder(thisMoney) {
   }
   if (thisMoney >= 10**96) {
     roundedMoney = "∞";
-    suffix = " [MAX]";
+    suffix = "";
   }
 
   return {
@@ -186,29 +186,41 @@ function moneyRounder(thisMoney) {
 
 function update() {
   requestAnimationFrame(function() {
-    const formattedMoney = moneyRounder(money);
     const formattedUpgradeMoney = moneyRounder(upgradeMoney);
     const formattedUpgradeMoney2 = moneyRounder(upgradeMoney2);
+
+    setTimeout(function() {
+    const formattedMoney = moneyRounder(money);
     const formattedMPS = moneyRounder(MPS);
     const formattedMPC = moneyRounder(MPC);
 
-    setTimeout(function() {
-      const Info = document.getElementById(`Info`);
-      const Button1 = document.getElementById(`Button1`);
-      const Button2 = document.getElementById(`Button2`);
-      const Button3 = document.getElementById(`Button3`);
-      const playtime = document.getElementById(`playtime`);
-  
-      Info.innerHTML = `Balance: $${formattedMoney.amount}${formattedMoney.suffix}<br>Per second: $${formattedMPS.amount}${formattedMPS.suffix}<br>Per click: $${formattedMPC.amount}${formattedMPC.suffix}`;
-      Button1.innerHTML = `Earn Money<br>Total clicks: ${totalClicks}`;
-      Button2.innerHTML = `Money per Second<br>Cost: $${formattedUpgradeMoney.amount}${formattedUpgradeMoney.suffix}`;
-      Button3.innerHTML = `Money per Click<br>Cost: $${formattedUpgradeMoney2.amount}${formattedUpgradeMoney2.suffix}`;
-  
-      const hoursIndex = playtimeHours < 10 ? "0" : "";
-      const minutesIndex = playtimeMinutes < 10 ? "0" : "";
-      const secondsIndex = playtimeSeconds < 10 ? "0" : "";
-      const playtimeLog = `Playtime: ${hoursIndex}${playtimeHours}h ${minutesIndex}${playtimeMinutes}m ${secondsIndex}${playtimeSeconds}s`;
-      playtime.innerHTML = playtimeLog;
+    const Info = document.getElementById(`Info`);
+    const Button1 = document.getElementById(`Button1`);
+    const Button2 = document.getElementById(`Button2`);
+    const Button3 = document.getElementById(`Button3`);
+    const playtime = document.getElementById(`playtime`);
+
+    const BalanceT = translations[language].balance;
+    const SecondT = translations[language].second;
+    const ClickT = translations[language].click;
+    const EarnMoneyT = translations[language].earn_money;
+    const TotalClicksT = translations[language].total_clicks;
+    const MoneyPerSecondT = translations[language].money_per_second;
+    const CostT = translations[language].cost;
+    const MoneyPerClickT = translations[language].money_per_click;
+    const PlaytimeT = translations[language].playtime;
+
+    Info.innerHTML = `${BalanceT}: $${formattedMoney.amount}${formattedMoney.suffix}<br>${SecondT}: $${formattedMPS.amount}${formattedMPS.suffix}<br>${ClickT}: $${formattedMPC.amount}${formattedMPC.suffix}`;
+    Button1.innerHTML = `${EarnMoneyT}<br>${TotalClicksT}: ${totalClicks}`;
+    Button2.innerHTML = `${MoneyPerSecondT}<br>${CostT}: $${formattedUpgradeMoney.amount}${formattedUpgradeMoney.suffix}`;
+    Button3.innerHTML = `${MoneyPerClickT}<br>${CostT}: $${formattedUpgradeMoney2.amount}${formattedUpgradeMoney2.suffix}`;
+
+    const hoursIndex = playtimeHours < 10 ? "0" : "";
+    const minutesIndex = playtimeMinutes < 10 ? "0" : "";
+    const secondsIndex = playtimeSeconds < 10 ? "0" : "";
+    const playtimeLog = `${PlaytimeT}: ${hoursIndex}${playtimeHours}h ${minutesIndex}${playtimeMinutes}m ${secondsIndex}${playtimeSeconds}s`;
+    playtime.innerHTML = playtimeLog;
+
     }, 100)
   });
 }

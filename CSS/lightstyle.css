@@ -1,9 +1,9 @@
 @keyframes glow {
     from {
-        text-shadow: 0 0 20px gray, 0 0 30px gray
+      text-shadow: 0 0 20px rgb(255, 255, 255), 0 0 30px rgb(255, 255, 255)
     }
     to {
-        text-shadow: 0 0 20px rgb(153, 153, 153), 0 0 30px rgb(153, 153, 153)
+      text-shadow: 0 0 20px rgb(153, 153, 153), 0 0 30px rgb(153, 153, 153)
     }
 }
 
@@ -76,8 +76,7 @@
 body, html {
     -webkit-user-select: none;
     user-select: none;
-    touch-action: manipulation;
-    background-color: transparent;
+    overflow: hidden;
   }
 
   .dynamic-background {
@@ -99,7 +98,6 @@ body, html {
 }
 
 .Index {
-    display: none;
     border-style: solid;
     background-color: transparent;
     color: black;
@@ -158,9 +156,9 @@ body, html {
     font-size: 150%;
 }
 .Button1 {
-    width: 80%;
-    height: auto;
-    font-size: 20px;
+    width: 50%;
+    height: 100%;
+    font-size: 25px;
     display: block;
     margin: 0 auto;
     color: black;
@@ -175,13 +173,13 @@ body, html {
 }
 
 .Button2, .Button3 {
-    width: 80%;
-    height: auto;
-    font-size: 20px;
+    width: 50%;
+    height: 100%;
+    font-size: 25px;
     display: block;
     margin: 0 auto;
     color: black;
-    background-color: rgb(0,0,0,0.05);
+    background-color: rgb(0,0,0,0);
     border-color: red;
     border-radius: 10px;
     border-style: solid;
@@ -191,14 +189,15 @@ body, html {
 }
 
 .ResetButton {
-    height: 35px;
-    width: 80%;
     font-size: 16px;
     font-weight: bold;
     color: rgba(28, 28, 28, 0.91);
-    border-color: rgba(255, 17, 0, 0.788);
+    width: 40%;
+    height: 100%;
+    padding: 1%;
     display: block;
     margin: 0 auto;
+    border-color: rgba(255, 17, 0, 0.788);
     background: transparent;
     border-style: dashed;
     border-radius: 10px;
@@ -214,16 +213,14 @@ body, html {
 }
 
 .database, .calculator {
-    width: 40%;
-    height: 23px;
+    width: 25%;
+    height: 40px;
     border: solid black;
     border-radius: 20px;
     border-width: 2px;
     color: black;
     background: transparent;
-    display: inline-table;
-    margin-bottom: 5px;
-    margin-top: 5px;
+    display:inline-table;
 }
 
 .database:hover, .calculator:hover {
@@ -252,16 +249,25 @@ body, html {
     width: -moz-fit-content;
     width: fit-content;
     color: black;
-    flex-grow: 0.25;
 }
 
 .playtime:hover {
     color: lightseagreen;
 }
 
-.container, .container2 {
-    display: block;
-    text-align: center;
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(239, 239, 239);
+    z-index: 1;
+}
+
+.container2 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-grow: 1;
     background-color: rgb(239, 239, 239);
     z-index: 1;
 }
@@ -273,9 +279,7 @@ body, html {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgb(239, 239, 239);
-    padding: 3%;
-    padding-bottom: 10%;
-    padding-top: 5%;
+    padding: 5%;
     border: 4px solid;
     border-radius: 5px;
     border-color: gray;
@@ -285,8 +289,8 @@ body, html {
   }
   
   .PopupText {
-    font-size: 20px;
-    margin-bottom: 40px;
+    font-size: 30px;
+    margin-bottom: 70px;
     color: black;
     white-space: nowrap;
   }
@@ -297,7 +301,7 @@ body, html {
   
   .PopupButton {
     margin: 0 20px;
-    padding: 15px 40px;
+    padding: 20px 60px;
     background-color: #ff0000c9;
     color: white;
     border: none;
@@ -323,7 +327,7 @@ body, html {
 }
 
 .warning {
-    width: 50%;
+    width: 25%;
     height: 50%;
   }
 
@@ -331,8 +335,8 @@ body, html {
     position: absolute;
     bottom: 10px;
     right: 10px;
-    height: 35px;
-    width: 35px;
+    height: 50px;
+    width: 50px;
     padding: 0px;
     margin: 0px;
     z-index: inherit;
@@ -343,115 +347,110 @@ body, html {
     transform: scale(1.2);
 }
 
-.buttons-container {
+.google-log-in {
+    border-radius: 15px;
+    background-color: transparent;
+    border-color: rgb(90, 160, 183);
+    color: black;
+    padding: 10px;
+    margin-left: 50px;
+  }
+
+  .google-log-in:hover {
+    border-color: rgb(32, 81, 98);
+    opacity: 0.8;
+  }
+
+  .buttons-container {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    }
-    
-    .pfpInfo {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 70px;
-    background-color: rgb(239, 239, 239);
-    border: 2px solid rgb(181, 181, 181);
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(210, 210, 210, 0.2);
-    z-index: 100;
-    max-width: 300px;
-    width: 100%;
-    }
-    
-    .signout, .import, .export {
-    margin-top: 10px;
-    background-color: transparent;
-    border: 2px solid rgb(0, 177, 177);
-    border-radius: 10px;
-    padding: 10px 20px;
-    color: black;
-    }
-    
-    .signout:hover, .import:hover, .export:hover {
-    border-color: darkcyan;
-    }
-    
-    .username {
-    font-size: 20px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: black;
-    margin-bottom: 20px;
-    white-space: inherit;
-    }
-    
-    
-    .overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 99;
-    }
-    
-    .toast {
-    position: fixed;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    display: none;
-    z-index: 1000;
-    transition: opacity 0.5s ease-in-out, display 0.5s ease-in-out;
-    }
-    
-    .loading {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(239, 239, 239);
-    z-index: 9999;
-    opacity: 1;
-    transition: opacity 1s ease;
-    }
+}
+
+.pfpInfo {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 70px;
+  background-color: rgb(239, 239, 239);
+  border: 2px solid rgb(168, 168, 168);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(213, 213, 213, 0.2);
+  z-index: 100;
+  max-width: 300px;
+  width: 100%;
+}
+
+.signout, .import, .export {
+  margin-top: 10px;
+  background-color: transparent;
+  border: 2px solid rgb(0, 177, 177);
+  border-radius: 10px;
+  padding: 10px 20px;
+  color: black;
+}
+
+.signout:hover, .import:hover, .export:hover {
+  border-color: darkcyan;
+}
+
+.username {
+  font-size: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: black;
+  margin-bottom: 20px;
+  white-space: inherit;
+}
+
+.toast {
+  position: fixed;
+  top: 113px;
+  right: 10px;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: none;
+  z-index: 1000;
+  transition: opacity 0.5s ease-in-out, display 0.5s ease-in-out;
+}
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(239, 239, 239);
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
 
 .pfp {
     display: inline-block;
     border-radius: 50%;
     border: 3px rgb(239, 239, 239) solid;
-    width: 45%;
-    height: 45%;
+    width: 35%;
+    height: 35%;
     margin-left: auto;
-    }
+}
 
   .pfp:hover {
-    border: 3px solid rgb(201, 201, 201);
+    border: 3px solid rgb(186, 186, 186);
   }
 
-  .google-log-in {
-    border-radius: 15px;
+  .language-select {
+    position: absolute;
+    right: 0;
+    margin-top: 2px;
+    margin-right: 20px;
+
+    border-color: black;
+    border-radius: 10px;
     background-color: transparent;
-    border-color: rgb(90, 160, 183);
     color: black;
-    padding: 2px;
-    margin-left: 10px;
-    width: 25%;
-    }
-    
-    .google-log-in:hover {
-    border-color: rgb(32, 81, 98);
-    opacity: 0.8;
-    }
-    
-    .container2 {
-        display: flex;
-        align-items: center;
-        }
+    padding: 8px;
+    padding-right: 5px;
+  }

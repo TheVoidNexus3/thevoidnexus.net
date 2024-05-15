@@ -384,3 +384,15 @@
             opacity: 0.8;
             }
             
+            .language-select {
+                position: absolute;
+                margin-top: 2px;
+                margin-left: 10px;
+            
+                border-color: white;
+                border-radius: 10px;
+                background-color: transparent;
+                color: white;
+                padding: 5px;
+                padding-right: 5px;
+              }
