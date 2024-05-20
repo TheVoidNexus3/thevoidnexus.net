@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 50px;
+}
+h1 {
+    font-size: 50px;
+    font-weight: bold;
+    background: linear-gradient(90deg, red, orange, yellow, lime, cyan, orange, yellow);
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradientShift 8s infinite linear;
+}
+h2 {
+    font-size: 35px;
+    color: rgb(63, 63, 63)
+}
+
+p {
+    font-size: 20px;
+}
+a {
+    font-size: 20px;
+    color: #bdddff;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: black;
+        color: white;
+    }
+    h2 {
+        color: rgb(189, 189, 189)
+    }
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}

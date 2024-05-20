@@ -269,7 +269,7 @@ function gameReset() {
 }
 
 function resetProgress() {
-  const overlay = document.getElementById('overlay');
+  const overlay = document.getElementById('overlay2');
   const popup = document.getElementById('popup');
   popup.style.display = "none";
   overlay.style.display = "none";

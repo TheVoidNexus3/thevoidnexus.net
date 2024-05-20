@@ -40,14 +40,18 @@ function colormode() {
 
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
     stylesheet.setAttribute('href', 'CSS/lightstyle.css');
+    localStorage.setItem("Colormode", "light");
 } else {
     stylesheet.setAttribute('href', 'CSS/style.css');
+    localStorage.setItem("Colormode", "dark");
 }
 
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
     mstylesheet.setAttribute('href', 'CSS/mlightstyle.css');
+    localStorage.setItem("Colormode", "light");
 } else {
     mstylesheet.setAttribute('href', 'CSS/mstyle.css');
+    localStorage.setItem("Colormode", "dark");
 }
 }
 }
