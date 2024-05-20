@@ -2,49 +2,55 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     padding: 50px;
+    background-color: black;
+    color: rgb(99, 99, 99);
+    user-select: none;
 }
 h1 {
     font-size: 50px;
     font-weight: bold;
-    background: linear-gradient(90deg, red, orange, yellow, lime, cyan, orange, yellow);
+    background: linear-gradient(to right, cyan, green, lime, yellow, orange, red, magenta, purple, blue, cyan);
     background-size: 200% 200%;
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    animation: gradientShift 8s infinite linear;
-}
+    animation: gradientShiftLeft 8s infinite linear;
+  }
+
 h2 {
-    font-size: 35px;
-    color: rgb(63, 63, 63)
+    font-size: 25px;
+    background: linear-gradient(to right, rgb(49, 49, 49), rgb(145, 145, 145), rgb(49, 49, 49));
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradientShiftLeft 15s infinite linear;
 }
 
 p {
     font-size: 20px;
 }
+
 a {
     font-size: 20px;
-    color: #bdddff;
-    text-decoration: none;
+    background: linear-gradient(to right, rgb(0, 191, 255), rgb(106, 106, 255), rgb(0, 191, 255));
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradientShiftLeft 5s infinite linear;
 }
+
 a:hover {
-    text-decoration: underline;
+    background: linear-gradient(to right, rgb(195, 195, 255), rgb(69, 209, 255), rgb(198, 198, 255));
+    background-clip: text;
 }
 
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: black;
-        color: white;
-    }
-    h2 {
-        color: rgb(189, 189, 189)
-    }
-}
-
-@keyframes gradientShift {
+@keyframes gradientShiftLeft {
     0% {
-        background-position: 0% 50%;
+      background-position: 200% 50%;
     }
     100% {
-        background-position: 100% 50%;
+      background-position: 0% 50%;
     }
-}
+  }
