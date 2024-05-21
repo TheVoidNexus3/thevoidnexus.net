@@ -3,14 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="CSS/404.css" id="stylesheet">
+  <link id="stylesheet" rel="stylesheet" href="CSS/404.css" media="screen and (min-width: 709px)">
+  <link id="mstylesheet" rel="stylesheet" href="CSS/m404.css" media="screen and (max-width: 710px)">
   <title>404 - Not found</title>
 </head>
 <body>
+  <div class="container">
+    <a href="https://thevoidnexus.github.io" id="main" class="main">thevoidnexus.github.io</a>
+    <p id="playtime" class="playtime"></p>
+    <div class="container2">
+        <button onclick="redirect()" class="database" id="database">Database</button>
+        <button onclick="redirect2()" class="calculator" id="calculator">Calculator</button>
+        <button class="google-log-in" id="login">Log in</button>
+            <div class="buttons-container">
+            <img id="pfp" class="pfp" alt="">
+        </div>
+    </div>
+</div>
+<hr class="line">
   <h1>Error 404</h1>
   <h2>The page you were looking for seems to have gotten lost in the digital void.</h2><p>
     It may not exist or got removed.
     <br><br>
-    <a href="https://thevoidnexus.github.io">Return to the Homepage</a>
+    <a href="https://thevoidnexus.github.io" class="return">Return to the Homepage</a>
+  
+<script src="Javascript/404.js"></script>
 </body>
 </html>

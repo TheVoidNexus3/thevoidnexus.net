@@ -20,6 +20,8 @@ const database = getDatabase(app);
 
 const provider = new GoogleAuthProvider();
 
+const usersave = {};
+
 auth.languageCode = language;
 
 const googleLogin = document.getElementById("login");
@@ -28,7 +30,6 @@ googleLogin.addEventListener("click", function() {
     signInWithPopup(auth, provider)
         .then((result) => {
             let user = result.user;
-            localStorage.setItem("DisplayName", user.displayName);
             const loginMessage = "You are logged in as " + user.displayName + ".";
             showToast(loginMessage, 3000, "success");
             successfulLogin(user);
@@ -43,13 +44,16 @@ googleLogin.addEventListener("click", function() {
 });
 
 function successfulLogin(user) {
-    let profilePicture = user.photoURL;
-    let username = user.displayName;
+
+    usersave.profileURL = user.photoURL;
+    usersave.displayName = user.displayName;
+
+    localStorage.setItem("User", JSON.stringify(usersave));
 
     const googleLogin = document.getElementById("login");
     const pfp = document.getElementById("pfp");
 
-    pfp.src = profilePicture;
+    pfp.src = usersave.profileURL;
     pfp.style.display = "flex";
     googleLogin.style.display = "none";
 
@@ -68,7 +72,7 @@ function successfulLogin(user) {
             console.error("Error fetching data:", error);
         });
 
-    const loginMessage = translations[language].logged_in + username + "</strong>.";
+    const loginMessage = translations[language].logged_in + usersave.displayName + "</strong>.";
     showToast(loginMessage, 3000, "success");
 }
 
@@ -97,7 +101,7 @@ const signoutButton = document.getElementById("signout");
 const overlay = document.querySelector(".overlay");
 
 pfp.addEventListener("click", () => {
-    let username = localStorage.getItem("DisplayName");
+    let username = usersave.displayName;
 
     overlay.style.display = "block";
 
