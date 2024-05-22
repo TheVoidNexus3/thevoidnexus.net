@@ -164,5 +164,5 @@ h1, h2, .removed, .returnp {
 }
 
 option:nth-child(1), option:nth-child(2), option:nth-child(3) {
-  color: black;
+  background-color: black;
 }

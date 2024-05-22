@@ -458,7 +458,7 @@ body, html {
   }
   
   option:nth-child(1), option:nth-child(2), option:nth-child(3) {
-    color: black;
+    background-color: black;
   }
 
   .overlay2 {
