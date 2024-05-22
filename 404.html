@@ -21,11 +21,16 @@
     </div>
 </div>
 <hr class="line">
+<select class="language-select" id="language-select" onchange="updateLanguage(this.value)">
+  <option value="en">English</option>
+  <option value="de">German</option>
+  <option value="sv">Swedish</option>
+</select>
+
   <h1>Error 404</h1>
-  <h2>The page you were looking for seems to have gotten lost in the digital void.</h2><p>
-    It may not exist or got removed.
-    <br><br>
-    <a href="https://thevoidnexus.github.io" class="return">Return to the Homepage</a>
+  <h2 id="h2">The page you were looking for seems to have gotten lost in the digital void.</h2>
+    <p class="removed" id="removed">It may not exist or got removed.</p>
+    <p class="returnp"><a href="https://thevoidnexus.github.io" id="return" class="return">Return to the Homepage</a></p>
   
 <script src="Javascript/404.js"></script>
 </body>

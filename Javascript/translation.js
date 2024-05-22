@@ -54,7 +54,7 @@ const translations = {
         "import": "Daten abrufen",
         "username": "Eingeloggt als <strong>",
         "english": "Englisch",
-        "german": "Deutsch",
+        "german": "Deutsch (DE)",
         "swedish": "Schwedisch",
         "logged_in": "Du bist eingeloggt als <strong>",
         "error": "Ein Fehler ist aufgetreten.",

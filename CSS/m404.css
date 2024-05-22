@@ -89,7 +89,7 @@
         background-clip: text;
     }
     
-    h1, h2, p, .return {
+    h1, h2, .removed, .returnp {
       text-align: center;
     }
 
@@ -114,11 +114,24 @@
       .google-log-in {
         border-radius: 15px;
         background-color: transparent;
-        border-color: lightblue;
-        color: white;
+        border-color: rgb(165, 165, 165);
+        color: rgb(235, 235, 235);
         padding: 2px;
         margin-left: 10px;
         width: 25%;
+        }
+        
+        .language-select {
+          position: absolute;
+          margin-top: 2px;
+          margin-left: 10px;
+      
+          border-color: white;
+          border-radius: 10px;
+          background-color: transparent;
+          color: white;
+          padding: 5px;
+          padding-right: 5px;
         }
 
     @keyframes gradientShiftLeft {

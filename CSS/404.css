@@ -44,7 +44,7 @@ a:hover {
     background-clip: text;
 }
 
-h1, h2, p, .return {
+h1, h2, .removed, .returnp {
   text-align: center;
 }
 
@@ -113,8 +113,8 @@ h1, h2, p, .return {
 .google-log-in {
   border-radius: 15px;
   background-color: transparent;
-  border-color: lightblue;
-  color: white;
+  border-color: rgb(165, 165, 165);
+  color: rgb(235, 235, 235);
   padding: 10px;
   margin-left: 50px;
   border-style: solid;
@@ -147,3 +147,22 @@ h1, h2, p, .return {
       background-position: 0% 50%;
     }
   }
+
+.language-select {
+  position: absolute;
+  right: 0;
+  margin-top: 2px;
+  margin-right: 20px;
+
+  border-color: white;
+  color: white;
+  border-radius: 10px;
+  background-color: transparent;
+  padding: 8px;
+  padding-right: 5px;
+  white-space: nowrap;
+}
+
+option:nth-child(1), option:nth-child(2), option:nth-child(3) {
+  color: black;
+}
