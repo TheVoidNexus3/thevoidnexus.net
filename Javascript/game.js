@@ -297,7 +297,7 @@ function redirect() {
 }
 
 function redirect2() {
-  window.location.href = "https://thevoidnexus.github.io/calculator/";
+  window.location.href = "https://thevoidnexus.github.io/calc/";
 }
 
 function toggleIndex() {
