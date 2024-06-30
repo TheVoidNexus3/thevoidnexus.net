@@ -42,7 +42,7 @@ const translations = {
         "hour_ago": " hour(s) ago",
         "minute_ago": " minute(s) ago",
         "just_now": " just now",
-        "created": "Erstellt: ",
+        "created": "Created: ",
     },
     "de": {
         "balance": "Kontostand",
@@ -132,7 +132,7 @@ const translations = {
         "hour_ago": " timme(ar) sedan",
         "minute_ago": " minut(ar) sedan",
         "just_now": "just nu",
-        "created": "Erstellt: ",
+        "created": "Skapad: ",
     }
 };
 
