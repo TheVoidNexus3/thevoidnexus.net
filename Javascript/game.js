@@ -176,6 +176,7 @@ function moneyRounder(thisMoney) {
   if (thisMoney >= 10**96) {
     roundedMoney = "∞";
     suffix = "";
+    save.verified = true;
   }
 
   return {

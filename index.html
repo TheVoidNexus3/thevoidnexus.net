@@ -11,13 +11,20 @@
     <title>VoidClicker by TheVoidNexus</title>
 </head>
 <body>
-  <div id="loading" class="loading"></div>
     <div id="pfpInfo" class="pfpInfo">
+      <div class="userinfo-container">
+      <img id="pfp2" class="pfp2" alt="">
+      <br>
+      <div class="username-container">
         <p id="username" class="username"></p>
-        <button id="signout" class="signout">Sign Out</button>
-        <br>
-        <button id="export" class="export">Save Data</button>
-        <button id="import" class="import">Fetch Data</button>
+        <span class="verified-check" id="verified-check" style="display: none;">
+          <span class="tooltip" id="tooltip">Verified Account</span>
+        </span>
+      </div>
+      <p id="email" class="email"></p>
+      <p id="created" class="created"></p>
+      <button id="signout" class="signout">Sign Out</button>
+      </div>
     </div>
     <div id="toast" class="toast"></div>
     <div class="overlay" id="overlay"></div>
@@ -55,12 +62,15 @@
 <br> <br> <br>
 <button onclick="gameReset()" class="ResetButton" id="reset">Reset Progress</button>
 <div class="popup" id="popup">
+    <div class="popup-container">
     <img class="warning" src="https://cdn-icons-png.flaticon.com/512/752/752755.png">
     <p class="PopupText" id="PopupText">Do you want to reset your progress?</p>
     <div class="buttonContainer">
       <button id="cancel" class="PopupButton" onclick="closePopup()">Cancel</button>
       <button id="confirm" class="PopupButton" onclick="resetProgress()">Confirm</button>
     </div>
+    </div>
+  </div>
   </div>
 <img id="coloricon" class="coloricon" src="https://cdn-icons-png.flaticon.com/128/606/606795.png" alt="Toggle Darkmode/Lightmode">
 

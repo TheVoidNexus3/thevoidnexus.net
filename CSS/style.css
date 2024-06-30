@@ -277,26 +277,29 @@ body, html {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #0a0909fb;
-    padding: 5%;
-    padding-top: 3%;
-    border: 1px solid black;
+    background-color: black;
+    padding: 3.5%;
+    border: 1px solid rgb(0, 71, 71);
     border-radius: 5px;
-    border-color: white;
     flex-direction: column;
     align-items: center;
     z-index: 10;
   }
-  
-  .PopupText {
-    font-size: 25px;
-    margin-bottom: 35px;
-    color: white;
-    white-space: nowrap;
+
+  .popup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    border: 1px solid #141414;
+    border-radius: 10px;
+    background-color: #0a0a0a;
   }
   
-  .buttonContainer {
-    display: flex;
+  .PopupText {
+    font-size: 20px;
+    color: rgb(255, 207, 207);
+    white-space: nowrap;
   }
   
   .PopupButton {
@@ -327,7 +330,7 @@ body, html {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.85);
     z-index: 9;
 }
 
@@ -349,6 +352,7 @@ body, html {
 }
 
   .google-log-in {
+    display: none;
     border-radius: 15px;
     background-color: transparent;
     border-color: lightblue;
@@ -376,7 +380,7 @@ body, html {
   transform: translate(-50%, -50%);
   padding: 70px;
   background-color: rgb(0, 0, 0);
-  border: 2px solid rgb(80, 80, 80);
+  border: 1px solid rgb(0, 71, 71);
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   z-index: 100;
@@ -384,7 +388,7 @@ body, html {
   width: 100%;
 }
 
-.signout, .import, .export {
+.signout {
   margin-top: 10px;
   background-color: transparent;
   border: 2px solid darkcyan;
@@ -393,7 +397,7 @@ body, html {
   color: white;
 }
 
-.signout:hover, .import:hover, .export:hover {
+.signout:hover {
   border-color: rgb(0, 177, 177);
 }
 
@@ -401,8 +405,6 @@ body, html {
   font-size: 20px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: white;
-  margin-bottom: 20px;
-  white-space: inherit;
 }
 
 .toast {
@@ -468,6 +470,78 @@ body, html {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.85);
     z-index: 9;
+}
+
+.verified-check {
+    display: inline-flex;
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+    background-image: url('https://cdn-icons-png.flaticon.com/128/7641/7641727.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.tooltip {
+    font-family: normal;
+    visibility: hidden;
+    width: 130px;
+    background-color: #444444;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 4px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -65px;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.verified-check:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.username-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+  }
+
+  .userinfo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #141414;
+    border-radius: 10px;
+    background-color: #0a0a0a;
+    max-width: 300px;
+    margin: auto;
+  }
+
+.pfp2 {
+    border-radius: 50px;
+}
+
+.email, .created {
+    color: white;
 }

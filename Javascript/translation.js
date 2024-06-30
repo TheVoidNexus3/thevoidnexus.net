@@ -13,9 +13,7 @@ const translations = {
         "database": "Database",
         "calculator": "Calculator",
         "signOut": "Sign out",
-        "export": "Save Data",
-        "import": "Fetch Data",
-        "username": "Logged in as <strong>",
+        "username": "<strong>",
         "english": "English",
         "german": "German",
         "swedish": "Swedish",
@@ -32,9 +30,19 @@ const translations = {
         "not_authenticated": "You are not authenticated.",
         "login": "Login",
         "title": "VoidClicker by TheVoidNexus",
-        "popupText": "Do you really want to reset your progress?",
+        "popupText": "<strong>Do you really want to reset your progress?</strong><br>This action cannot be undone.",
         "cancel": "Cancel",
         "confirm": "Confirm",
+        "verified": "Verified Account",
+        "ago": "",
+        "year_ago": " year ago",
+        "month_ago": " month(s) ago",
+        "week_ago": " week(s) ago",
+        "day_ago": " day(s) ago",
+        "hour_ago": " hour(s) ago",
+        "minute_ago": " minute(s) ago",
+        "just_now": " just now",
+        "created": "Erstellt: ",
     },
     "de": {
         "balance": "Kontostand",
@@ -50,9 +58,7 @@ const translations = {
         "database": "Datenbasis",
         "calculator": "Rechner",
         "signOut": "Ausloggen",
-        "export": "Daten speichern",
-        "import": "Daten abrufen",
-        "username": "Eingeloggt als <strong>",
+        "username": "<strong>",
         "english": "Englisch",
         "german": "Deutsch (DE)",
         "swedish": "Schwedisch",
@@ -69,9 +75,19 @@ const translations = {
         "not_authenticated": "Du bist nicht authentifiziert.",
         "login": "Einloggen",
         "title": "VoidClicker von TheVoidNexus",
-        "popupText": "Möchtest du deinen Fortschritt wirklich zurücksetzen?",
+        "popupText": "<strong>Möchtest du deinen Fortschritt wirklich zurücksetzen?</strong><br>Diese Aktion kann nicht rückgängig gemacht werden.",
         "cancel": "Abbrechen",
         "confirm": "Bestätigen",
+        "verified": "Verifizierter Account",
+        "ago": "vor ",
+        "year_ago": " Jahr",
+        "month_ago": " Monat(en)",
+        "week_ago": " Woche(n)",
+        "day_ago": " Tag(en)",
+        "hour_ago": " Stunde(n)",
+        "minute_ago": " Minute(n)",
+        "just_now": "ein paar Sekunden",
+        "created": "Erstellt: ",
     },
     "sv": {
         "balance": "Balans",
@@ -87,9 +103,7 @@ const translations = {
         "database": "Databas",
         "calculator": "Kalkylator",
         "signOut": "Logga ut",
-        "export": "Spara data",
-        "import": "Hämta data",
-        "username": "Inloggad som <strong>",
+        "username": "<strong>",
         "english": "Engelska",
         "german": "Tyska",
         "swedish": "Svenska",
@@ -106,9 +120,19 @@ const translations = {
         "not_authenticated": "Du är inte autentiserad.",
         "login": "Logga in",
         "title": "VoidClicker av TheVoidNexus",
-        "popupText": "Vill du verkligen återställa dina framsteg?",
+        "popupText": "<strong>Vill du verkligen återställa dina framsteg?</strong><br>Denna åtgärd kan inte aterställas.",
         "cancel": "Avbryt",
         "confirm": "Bekräfta",
+        "verified": "Verifierad konto",
+        "ago": "",
+        "year_ago": " år sedan",
+        "month_ago": " mån(ar) sedan",
+        "week_ago": " veck(ar) sedan",
+        "day_ago": " dag(ar) sedan",
+        "hour_ago": " timme(ar) sedan",
+        "minute_ago": " minut(ar) sedan",
+        "just_now": "just nu",
+        "created": "Erstellt: ",
     }
 };
 
@@ -121,23 +145,21 @@ function setLanguage(lang) {
     const database = document.getElementById("database");
     const calculator = document.getElementById("calculator")
     const signOut = document.getElementById("signout")
-    const exportT = document.getElementById("export")
-    const importT = document.getElementById("import")
     const login = document.getElementById("login");
     const popupText = document.getElementById("PopupText");
     const cancel = document.getElementById("cancel");
     const confirm = document.getElementById("confirm");
+    const verified = document.getElementById("tooltip");
 
     reset.innerHTML = translations[language].reset;
     database.innerHTML = translations[language].database
     calculator.innerHTML = translations[language].calculator
     signOut.innerHTML = translations[language].signOut
-    exportT.innerHTML = translations[language].export
-    importT.innerHTML = translations[language].import
     login.innerHTML = translations[language].login
     popupText.innerHTML = translations[language].popupText
     cancel.innerHTML = translations[language].cancel
     confirm.innerHTML = translations[language].confirm
+    verified.innerHTML = translations[language].verified
 
     const select = document.getElementById('language-select');
     select.options[0].innerHTML = translations[language].english

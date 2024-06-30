@@ -26,38 +26,29 @@ auth.languageCode = language;
 
 const googleLogin = document.getElementById("login");
 
-googleLogin.addEventListener("click", function() {
-    signInWithPopup(auth, provider)
-        .then((result) => {
-            let user = result.user;
-            const loginMessage = "You are logged in as " + user.displayName + ".";
-            showToast(loginMessage, 3000, "success");
-            successfulLogin(user);
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.error(errorCode);
-            console.error(errorMessage);
-            showToast(translations[language].error, 3000, "warning");
-        });
-});
-
 function successfulLogin(user) {
 
     usersave.profileURL = user.photoURL;
     usersave.displayName = user.displayName;
+    usersave.email = user.email;
+    usersave.creationTime = user.metadata.creationTime;
+    usersave.uid = user.uid;
 
     localStorage.setItem("User", JSON.stringify(usersave));
 
     const googleLogin = document.getElementById("login");
     const pfp = document.getElementById("pfp");
+    const pfp2 = document.getElementById("pfp2");
 
     pfp.src = usersave.profileURL;
+    pfp2.src = usersave.profileURL;
     pfp.style.display = "flex";
     googleLogin.style.display = "none";
 
     const uid = user.uid;
+
+    checkVerified(uid);
+
     const databaseRef = ref(database, `users/${uid}/data`);
     get(databaseRef)
         .then((snapshot) => {
@@ -76,12 +67,21 @@ function successfulLogin(user) {
     showToast(loginMessage, 3000, "success");
 }
 
+function checkVerified(uid) {
+    if(uid === "EtZpsXJIRgSH8REhDUB70uBE7vA2" || uid === "o9I99lWZuCRvLXpwo6engyUAh2J3" || save.verified == true) {
+        const checkmark = document.getElementById("verified-check");
+        checkmark.style.display = "flex";
+    }
+}
+
 function successfulLogout() {
     const googleLogin = document.getElementById("login");
     const pfp = document.getElementById("pfp");
+    const checkmark = document.getElementById("verified-check");
 
     googleLogin.style.display = "inline-block";
     pfp.style.display = "none";
+    checkmark.style.display = "none";
 
     showToast(translations[language].logged_out, 3000, "info");
 }
@@ -91,6 +91,23 @@ onAuthStateChanged(auth, (user) => {
         successfulLogin(user);
     } else {
         showToast(translations[language].not_logged_in, 3000, "info");
+
+        googleLogin.addEventListener("click", function() {
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    let user = result.user;
+                    const loginMessage = "You are logged in as " + user.displayName + ".";
+                    showToast(loginMessage, 3000, "success");
+                    successfulLogin(user);
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.error(errorCode);
+                    console.error(errorMessage);
+                    showToast(translations[language].error, 3000, "warning");
+                });
+        });
     }
 });
 
@@ -99,6 +116,8 @@ const popup = document.getElementById("pfpInfo");
 const usernamePopup = document.getElementById("username");
 const signoutButton = document.getElementById("signout");
 const overlay = document.querySelector(".overlay");
+const email = document.getElementById("email");
+const creation = document.getElementById("created");
 
 pfp.addEventListener("click", () => {
     let username = usersave.displayName;
@@ -108,36 +127,55 @@ pfp.addEventListener("click", () => {
     popup.style.display = "block";
     usernamePopup.style.display = "block";
 
+    email.innerHTML = 'Email: ' + usersave.email;
+    creation.innerHTML = translations[language].created + timeSince(usersave.creationTime);
 
     usernamePopup.innerHTML = translations[language].username + username + "</strong>";
+});
 
-    signoutButton.addEventListener("click", () => {
-        auth.signOut().then(() => {
-            successfulLogout();
-            popup.style.display = "none";
-            overlay.style.display = "none";
-        }).catch((error) => {
-            console.error(error);
-            showToast(translations[language].error, 3000, "warning");
-        });
+function timeSince(date) {
+    const now = new Date();
+    const past = new Date(date);
+    const prefix = translations[language].ago;
+    const secondsPast = Math.floor((now - past) / 1000);
+    const minutesPast = Math.floor(secondsPast / 60);
+    const hoursPast = Math.floor(minutesPast / 60);
+    const daysPast = Math.floor(hoursPast / 24);
+    const weeksPast = Math.floor(daysPast / 7);
+    const monthsPast = Math.floor(daysPast / 30);
+    const yearsPast = Math.floor(monthsPast / 12);
+
+    if (yearsPast > 0) {
+      return prefix + yearsPast + translations[language].year_ago;
+    } else if (monthsPast > 0) {
+      return prefix + monthsPast + translations[language].month_ago;
+    } else if (weeksPast > 0) {
+      return prefix + weeksPast + translations[language].week_ago;
+    } else if (daysPast > 0) {
+      return prefix + daysPast + translations[language].day_ago;
+    } else if (hoursPast > 0) {
+      return prefix + hoursPast + translations[language].hour_ago;
+    } else if (minutesPast > 0) {
+      return prefix + minutesPast + translations[language].minute_ago;
+    } else {
+      return prefix + translations[language].just_now;
+    }
+  }
+
+signoutButton.addEventListener("click", () => {
+    auth.signOut().then(() => {
+        successfulLogout();
+        popup.style.display = "none";
+        overlay.style.display = "none";
+    }).catch((error) => {
+        console.error(error);
+        showToast(translations[language].error, 3000, "warning");
     });
 });
 
 overlay.addEventListener("click", () => {
     popup.style.display = "none";
     overlay.style.display = "none";
-});
-
-const exportButton = document.getElementById("export");
-exportButton.addEventListener("click", () => {
-    if (!confirm(translations[language].exportConfirm)) {
-        showToast(translations[language].cancelled, 3000, "info");
-        popup.style.display = "none";
-        overlay.style.display = "none";
-        return;
-    }
-
-    exportData();
 });
 
 function exportData(type) {
@@ -165,18 +203,6 @@ function exportData(type) {
         showToast(translations[language].not_authenticated, 3000, "warning");
     }
 }
-
-const importButton = document.getElementById("import");
-importButton.addEventListener("click", () => {
-    if (!confirm(translations[language].importConfirm)) {
-        showToast(translations[language].cancelled, 3000, "info");
-        popup.style.display = "none";
-        overlay.style.display = "none";
-        return;
-    }
-
-    importData();
-});
 
 function importData(type) {
     const user = auth.currentUser;
