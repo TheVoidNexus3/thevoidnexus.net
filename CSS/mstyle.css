@@ -201,7 +201,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             background-color: black;
-            padding: 3.5%;
+            padding: 3%;
             border: 1px solid rgb(0, 71, 71);
             border-radius: 5px;
             flex-direction: column;
@@ -256,7 +256,7 @@
         }
 
         .warning {
-            width: 50%;
+            width: 40%;
             height: 150px;
           }
 
@@ -483,4 +483,25 @@
             
             .email, .created {
                 color: white;
+            }
+
+            .hidden-email {
+                color: #b1b1b1;
+                transition: color 0.5s ease;
+                cursor: pointer;
+                text-decoration: underline;
+                text-decoration-color: cyan;
+            }
+            
+            .hidden-email:hover {
+                color: white;
+            }
+            
+            .revealed-email {
+                color: white;
+                cursor: text;
+                user-select: text;
+                transition: color 0.5s ease;
+                text-decoration: underline;
+                text-decoration-color: cyan;
             }

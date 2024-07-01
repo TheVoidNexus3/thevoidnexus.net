@@ -45,6 +45,14 @@ function successfulLogin(user) {
     pfp.style.display = "flex";
     googleLogin.style.display = "none";
 
+    const loading = document.getElementById("loading");
+   
+    loading.style.opacity = 0;
+    setTimeout(() => {
+        loading.style.display = "none";
+    }, 500);
+
+
     const uid = user.uid;
 
     checkVerified(uid);
@@ -53,10 +61,7 @@ function successfulLogin(user) {
     get(databaseRef)
         .then((snapshot) => {
             if (snapshot.exists()) {
-                const databaseObject = snapshot.val();
-                if (MPC <= databaseObject.MPC || MPS <= databaseObject.MPS || money <= databaseObject.money) {
-                    importData("auto");
-                }
+                importData("auto");
             }
         })
         .catch((error) => {
@@ -111,6 +116,7 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
+
 const pfp = document.getElementById("pfp");
 const popup = document.getElementById("pfpInfo");
 const usernamePopup = document.getElementById("username");
@@ -123,15 +129,30 @@ pfp.addEventListener("click", () => {
     let username = usersave.displayName;
 
     overlay.style.display = "block";
-
     popup.style.display = "block";
     usernamePopup.style.display = "block";
 
-    email.innerHTML = 'Email: ' + usersave.email;
-    creation.innerHTML = translations[language].created + timeSince(usersave.creationTime);
+    let emailParts = usersave.email.split('@');
+    let hiddenEmail = emailParts[0].replace(/./g, '*') + '@' + emailParts[1];
 
-    usernamePopup.innerHTML = translations[language].username + username + "</strong>";
+    email.innerHTML = 'Email: <span class="hidden-email" id="email-content">' + hiddenEmail + '</span>';
+
+    const emailContent = document.getElementById("email-content");
+
+    emailContent.addEventListener('click', () => {
+        if (emailContent.classList.contains('hidden-email')) {
+            emailContent.innerHTML = '<span class="revealed-email">' + usersave.email + '</span>';
+            emailContent.classList.remove('hidden-email');
+        } else {
+            emailContent.innerHTML = '<span class="hidden-email">' + hiddenEmail + '</span>';
+            emailContent.classList.add('hidden-email');
+        }
+    });
+
+    creation.innerHTML = translations[language].created + timeSince(usersave.creationTime);
+    usernamePopup.innerHTML = translations[language].username + username;
 });
+
 
 function timeSince(date) {
     const now = new Date();
@@ -180,12 +201,15 @@ overlay.addEventListener("click", () => {
 
 function exportData(type) {
     const jsonString = localStorage.getItem("Data");
+    const jsonString2 = localStorage.getItem("User");
     const databaseObject = JSON.parse(jsonString) || {};
+    const userObject = JSON.parse(jsonString2) || {};
     const user = auth.currentUser;
 
     if (user) {
         const uid = user.uid;
         const databaseRef = ref(database, `users/${uid}/data`);
+        const databaseRef2 = ref(database, `users/${uid}/user`);
         set(databaseRef, databaseObject)
             .then(() => {
                 if (type != "auto") {
@@ -197,10 +221,17 @@ function exportData(type) {
                 showToast(translations[language].error, 3000, "warning");
             });
 
-        popup.style.display = "none";
-        overlay.style.display = "none";
-    } else {
-        showToast(translations[language].not_authenticated, 3000, "warning");
+        set(databaseRef2, userObject)
+            .then(() => {
+                if (type != "auto") {
+                    showToast(translations[language].exported, 3000, "success");
+                }
+            })
+            .catch((error) => {
+                console.error("Error exporting data:", error);
+                showToast(translations[language].error, 3000, "warning");
+            });
+
     }
 }
 
@@ -237,26 +268,22 @@ function importData(type) {
                 console.error("Error importing data:", error);
                 showToast(translations[language].error, 3000, "warning");
             });
-    } else {
-        showToast(translations[language].not_authenticated, 3000, "warning");
     }
 }
 
-window.unload = async function() {
-    const user = auth.currentUser;
-
-    if (user) {
-        const uid = user.uid;
-        const databaseRef = ref(database, `users/${uid}/data`);
-        const snapshot = await get(databaseRef);
-        if (snapshot.exists()) {
-            const databaseObject = snapshot.val();
-            if (MPC >= databaseObject.MPC || MPS >= databaseObject.MPS || money >= databaseObject.money) {
-                exportData("auto");
-            }
-        }
+document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState == 'hidden') { 
+        exportData("auto");
+    } else {
+        importData("auto");
     }
-};
+});
+
+window.onbeforeunload = exportData("auto");
+
+window.addEventListener('beforeunload', function() {
+    exportData("auto");
+});
 
 function showToast(message, duration, type) {
     const toast = document.getElementById("toast");
@@ -287,3 +314,4 @@ function showToast(message, duration, type) {
         }, 1000);
     }, duration);
 }
+

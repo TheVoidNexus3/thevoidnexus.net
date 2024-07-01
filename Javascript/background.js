@@ -1,3 +1,4 @@
+// Function to create a dot
 function createDot() {
     const dot = document.createElement('div');
     dot.classList.add('dot');
@@ -10,19 +11,41 @@ function createDot() {
     document.querySelector('.dynamic-background').appendChild(dot);
 
     setTimeout(function() {
-        document.querySelector('.dynamic-background').removeChild(dot);
-        dot.remove;
+        dot.remove();
     }, 60000);
 }
 
-setInterval(function() {
-    createDot();
-}, 750);
+function startCreatingDots() {
+    createDotInterval = setInterval(function() {
+        createDot();
+    }, 750);
+}
 
+function stopCreatingDots() {
+    clearInterval(createDotInterval);
+}
+
+startCreatingDots();
 
 setInterval(function() {
-    colormode()
-},10000)
+    colormode();
+}, 10000);
+
+document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState === 'visible') {
+        startCreatingDots();
+
+        document.querySelectorAll('.dot').forEach(dot => {
+            dot.style.animationPlayState = "running";
+        });
+    } else {
+        stopCreatingDots();
+            document.querySelectorAll('.dot').forEach(dot => {
+            dot.style.animationPlayState = "paused";
+
+        });
+    }
+});
 
 
 function colormode() {

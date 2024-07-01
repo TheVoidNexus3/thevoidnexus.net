@@ -542,6 +542,25 @@ body, html {
     border-radius: 50px;
 }
 
-.email, .created {
+.created, .email {
     color: white;
+}
+
+.hidden-email {
+    color: #b1b1b1;
+    transition: color 0.5s ease;
+    cursor: pointer;
+}
+
+.hidden-email:hover {
+    color: white;
+}
+
+.revealed-email {
+    color: white;
+    cursor: pointer;
+    user-select: text;
+    transition: color 0.5s ease;
+    text-decoration: underline;
+    text-decoration-color: cyan;
 }

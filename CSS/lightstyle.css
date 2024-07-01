@@ -544,3 +544,22 @@ body, html {
 .email, .created {
     color: black;
 }
+
+.hidden-email {
+    color: rgb(0, 133, 133);
+    transition: color 0.5s ease;
+    cursor: pointer;
+}
+
+.hidden-email:hover {
+    color: black;
+}
+
+.revealed-email {
+    color: black;
+    cursor: pointer;
+    user-select: text;
+    transition: color 0.5s ease;
+    text-decoration: underline;
+    text-decoration-color: rgb(0, 133, 133);
+}
