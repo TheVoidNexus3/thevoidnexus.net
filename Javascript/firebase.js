@@ -97,6 +97,13 @@ onAuthStateChanged(auth, (user) => {
     } else {
         showToast(translations[language].not_logged_in, 3000, "info");
 
+        loading.style.opacity = 0;
+        setTimeout(() => {
+            loading.style.display = "none";
+        }, 500);
+
+        googleLogin.style.display = "flex";
+
         googleLogin.addEventListener("click", function() {
             signInWithPopup(auth, provider)
                 .then((result) => {
