@@ -564,3 +564,15 @@ body, html {
     text-decoration: underline;
     text-decoration-color: cyan;
 }
+
+.privacy {
+    color: white;
+    text-decoration: none;
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+}
+
+.privacy:hover {
+    color: lightblue;
+}

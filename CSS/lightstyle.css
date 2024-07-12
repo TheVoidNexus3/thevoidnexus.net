@@ -563,3 +563,15 @@ body, html {
     text-decoration: underline;
     text-decoration-color: rgb(0, 133, 133);
 }
+
+.privacy {
+    color: black;
+    text-decoration: none;
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+}
+
+.privacy:hover {
+    color: darkcyan;
+}
