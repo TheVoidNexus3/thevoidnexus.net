@@ -1,13 +1,13 @@
 const translations = {
     "en": {
         "balance": "Balance",
-        "second": "Money per Second",
+        "second": "Per Second",
         "click": "Per click",
         "earn_money": "Earn Money",
-        "total_clicks": "Total clicks",
-        "money_per_second": "Money per Second",
+        "total_clicks": "Clicks",
+        "money_per_second": "Per Second<br>",
         "cost": "Cost",
-        "money_per_click": "Money per Click",
+        "money_per_click": "Per Click<br>",
         "playtime": "Playtime",
         "reset": "Reset Progress",
         "database": "Database",
@@ -28,7 +28,7 @@ const translations = {
         "logged_out": "Successfully logged out.",
         "not_logged_in": "You are not logged in.",
         "not_authenticated": "You are not authenticated.",
-        "login": "Login",
+        "login": "Sign in",
         "title": "VoidClicker by TheVoidNexus",
         "popupText": "<strong>Do you really want to reset your progress?</strong><br>This action cannot be undone.",
         "cancel": "Cancel",
@@ -43,13 +43,21 @@ const translations = {
         "minute_ago": " minute(s) ago",
         "just_now": " just now",
         "created": "Created: ",
+        "menu_title": "Other Projects",
+        "menu_appearance": "Appearance",
+        "menu_language": "Language",
+        "menu_other": "Other",
+        "menu_developer": "Developer",
+        "privacy_policy": "Privacy Policy",
+        "contribute": "Contribute",
+        "unavailable": "This feature is currently not available.",
     },
     "de": {
         "balance": "Kontostand",
         "second": "Geld pro Sekunde",
         "click": "Pro Klick",
         "earn_money": "Verdiene Geld",
-        "total_clicks": "Klicks insgesamt",
+        "total_clicks": "Klicks",
         "money_per_second": "Geld pro Sekunde",
         "cost": "Preis",
         "money_per_click": "Geld pro Klick",
@@ -88,16 +96,24 @@ const translations = {
         "minute_ago": " Minute(n)",
         "just_now": "ein paar Sekunden",
         "created": "Erstellt: ",
+        "menu_title": "Andere Projekte",
+        "menu_appearance": "Aussehen",
+        "menu_language": "Sprache",
+        "menu_other": "Sonstiges",
+        "menu_developer": "Entwickler",
+        "privacy_policy": "Datenschutzrichtlinie",
+        "contribute": "Beitragen",
+        "unavailable": "Diese Funktion ist derzeit nicht verfügbar.",
     },
     "sv": {
         "balance": "Balans",
         "second": "Pengar per sekund",
         "click": "Per klick",
         "earn_money": "Tjäna pengar",
-        "total_clicks": "Totalt antal klick",
-        "money_per_second": "Pengar per sekund",
+        "total_clicks": "Klickat",
+        "money_per_second": "Per sekund",
         "cost": "Kostnad",
-        "money_per_click": "Pengar per klick",
+        "money_per_click": "Per klick",
         "playtime": "Speltid",
         "reset": "Återställ framsteg",
         "database": "Databas",
@@ -133,6 +149,14 @@ const translations = {
         "minute_ago": " minut(ar) sedan",
         "just_now": "just nu",
         "created": "Skapad: ",
+        "menu_title": "Andra projekt",
+        "menu_appearance": "Utseende",
+        "menu_language": "Språk",
+        "menu_other": "Övrigt",
+        "menu_developer": "Utvecklare",
+        "privacy_policy": "Integritetspolicy",
+        "contribute": "Bidra",
+        "unavailable": "Denna funktion är för tillfället inte tillgänglig.",
     }
 };
 
@@ -145,11 +169,19 @@ function setLanguage(lang) {
     const database = document.getElementById("database");
     const calculator = document.getElementById("calculator")
     const signOut = document.getElementById("signout")
-    const login = document.getElementById("login");
+    const login = document.getElementById("login-text");
     const popupText = document.getElementById("PopupText");
     const cancel = document.getElementById("cancel");
     const confirm = document.getElementById("confirm");
     const verified = document.getElementById("tooltip");
+    const menu_verified = document.getElementById("menu-tooltip");
+    const menu_project = document.getElementById("menu-projects");
+    const menu_language = document.getElementById("menu-language");
+    const menu_privacy = document.getElementById("menu-privacy");
+    const menu_other = document.getElementById("menu-other");
+    const menu_developer = document.getElementById("menu-developer");
+    const menu_appearance = document.getElementById("menu-appearance");
+    const menu_contribute = document.getElementById("menu-contribute");
 
     reset.innerHTML = translations[language].reset;
     database.innerHTML = translations[language].database
@@ -160,6 +192,14 @@ function setLanguage(lang) {
     cancel.innerHTML = translations[language].cancel
     confirm.innerHTML = translations[language].confirm
     verified.innerHTML = translations[language].verified
+    menu_verified.innerHTML = translations[language].verified
+    menu_project.innerHTML = translations[language].menu_title
+    menu_language.innerHTML = translations[language].menu_language
+    menu_privacy.innerHTML = translations[language].privacy_policy
+    menu_developer.innerHTML = translations[language].menu_developer
+    menu_appearance.innerHTML = translations[language].menu_appearance
+    menu_contribute.innerHTML = translations[language].contribute
+    menu_other.innerHTML = translations[language].menu_other
 
     const select = document.getElementById('language-select');
     select.options[0].innerHTML = translations[language].english

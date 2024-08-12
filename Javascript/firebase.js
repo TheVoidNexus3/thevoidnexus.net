@@ -24,7 +24,7 @@ const usersave = {};
 
 auth.languageCode = language;
 
-const googleLogin = document.getElementById("login");
+const googleLogin = document.getElementById("google-login");
 
 function successfulLogin(user) {
 
@@ -36,7 +36,7 @@ function successfulLogin(user) {
 
     localStorage.setItem("User", JSON.stringify(usersave));
 
-    const googleLogin = document.getElementById("login");
+    const googleLogin = document.getElementById("google-login");
     const pfp = document.getElementById("pfp");
     const pfp2 = document.getElementById("pfp2");
 
@@ -80,11 +80,11 @@ function checkVerified(uid) {
 }
 
 function successfulLogout() {
-    const googleLogin = document.getElementById("login");
+    const googleLogin = document.getElementById("google-login");
     const pfp = document.getElementById("pfp");
     const checkmark = document.getElementById("verified-check");
 
-    googleLogin.style.display = "inline-block";
+    googleLogin.style.display = "inline-flex";
     pfp.style.display = "none";
     checkmark.style.display = "none";
 
@@ -102,7 +102,7 @@ onAuthStateChanged(auth, (user) => {
             loading.style.display = "none";
         }, 500);
 
-        googleLogin.style.display = "flex";
+        googleLogin.style.display = "inline-flex";
 
         googleLogin.addEventListener("click", function() {
             signInWithPopup(auth, provider)

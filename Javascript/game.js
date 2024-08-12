@@ -195,10 +195,12 @@ function update() {
     const formattedMPS = moneyRounder(MPS);
     const formattedMPC = moneyRounder(MPC);
 
-    const Info = document.getElementById(`Info`);
     const Button1 = document.getElementById(`Button1`);
     const Button2 = document.getElementById(`Button2`);
     const Button3 = document.getElementById(`Button3`);
+    const balance = document.getElementById(`balance`);
+    const mpc = document.getElementById(`mpc`);
+    const mps = document.getElementById(`mps`);
     const playtime = document.getElementById(`playtime`);
 
     const BalanceT = translations[language].balance;
@@ -211,16 +213,18 @@ function update() {
     const MoneyPerClickT = translations[language].money_per_click;
     const PlaytimeT = translations[language].playtime;
 
-    Info.innerHTML = `${BalanceT}: $${formattedMoney.amount}${formattedMoney.suffix}<br>${SecondT}: $${formattedMPS.amount}${formattedMPS.suffix}<br>${ClickT}: $${formattedMPC.amount}${formattedMPC.suffix}`;
-    Button1.innerHTML = `${EarnMoneyT}<br>${TotalClicksT}: ${totalClicks}`;
-    Button2.innerHTML = `${MoneyPerSecondT}<br>${CostT}: $${formattedUpgradeMoney.amount}${formattedUpgradeMoney.suffix}`;
-    Button3.innerHTML = `${MoneyPerClickT}<br>${CostT}: $${formattedUpgradeMoney2.amount}${formattedUpgradeMoney2.suffix}`;
-
     const hoursIndex = playtimeHours < 10 ? "0" : "";
     const minutesIndex = playtimeMinutes < 10 ? "0" : "";
     const secondsIndex = playtimeSeconds < 10 ? "0" : "";
     const playtimeLog = `${PlaytimeT}: ${hoursIndex}${playtimeHours}h ${minutesIndex}${playtimeMinutes}m ${secondsIndex}${playtimeSeconds}s`;
-    playtime.innerHTML = playtimeLog;
+
+    balance.innerHTML = `${BalanceT}: $${formattedMoney.amount}${formattedMoney.suffix}`;
+    mps.innerHTML = `${SecondT}: $${formattedMPS.amount}${formattedMPS.suffix}`;
+    mpc.innerHTML = `${ClickT}: $${formattedMPC.amount}${formattedMPC.suffix}`;
+    playtime.innerHTML = `${playtimeLog}`
+    Button1.innerHTML = `${EarnMoneyT}<br><br>${TotalClicksT}: <br>${totalClicks}`;
+    Button2.innerHTML = `${MoneyPerSecondT}<br>${CostT}: <br>$${formattedUpgradeMoney.amount}${formattedUpgradeMoney.suffix}`;
+    Button3.innerHTML = `${MoneyPerClickT}<br>${CostT}: <br>$${formattedUpgradeMoney2.amount}${formattedUpgradeMoney2.suffix}`;
 
     }, 100)
   });
@@ -294,11 +298,27 @@ function closePopup() {
 }
 
 function redirect() {
-  window.location.href = "https://thevoidnexus.github.io/database/";
+  window.location.href = "https://thevoidnexus.com/database/";
 }
 
 function redirect2() {
-  window.location.href = "https://thevoidnexus.github.io/calc/";
+  window.location.href = "https://thevoidnexus.com/calc/";
+}
+
+function redirect3() {
+  window.location.href = "https://thevoidnexus.com/privacy";
+}
+
+function redirect4() {
+  window.location.href = "https://github.com/TheVoidNexus/thevoidnexus.github.io";
+}
+
+function redirect5() {
+  window.location.href = "https://github.com/TheVoidNexus";
+}
+
+function redirect6() {
+  window.location.href = "https://discord.com/invite/U4aZrk32Yv";
 }
 
 function toggleIndex() {
@@ -371,3 +391,24 @@ window.addEventListener("resize", function() {
 window.addEventListener("load", function() {
   updateMaxHeight(document.getElementById('indexText'))
 })
+
+function openNav() {
+  document.getElementById("sidebar").style.width = "400px";
+  overlay.style.display = "flex";
+  overlay.addEventListener("click", function() {
+    closeNav();
+  })
+}
+
+function closeNav() {
+  document.getElementById("sidebar").style.width = "0";
+  overlay.style.display = "none";
+}
+
+document.getElementById("menuIcon").addEventListener("click", function() {
+  if (document.getElementById("sidebar").style.width === "400px") {
+      closeNav();
+  } else {
+      openNav();
+  }
+});
