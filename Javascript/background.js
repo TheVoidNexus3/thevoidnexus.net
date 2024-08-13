@@ -8,7 +8,7 @@ function colormode() {
             applyLightMode();
         } else if (setting == "dark") {
             applyDarkMode();
-        } else if (setting == null && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        } else if (setting == null && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             applyDarkMode(); 
         } else {
             applyLightMode();

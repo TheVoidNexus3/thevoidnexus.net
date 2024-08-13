@@ -310,7 +310,7 @@ function redirect3() {
 }
 
 function redirect4() {
-  window.location.href = "https://github.com/TheVoidNexus/thevoidnexus.github.io";
+  window.location.href = "https://github.com/TheVoidNexus/thevoidnexus.com/";
 }
 
 function redirect5() {
