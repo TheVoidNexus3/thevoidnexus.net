@@ -252,25 +252,12 @@ body {
     scale: 1.05;
 }
 
-.main {
-    display: inline-block;
-    text-decoration: none;
-    margin: 0;
-    font-size: 25px;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: white;
-    flex-grow: 1;
-}
-.main:hover {
-    color: lightblue;
-}
-
 .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1;
-    background-color: rgba(24, 24, 24, 0.836);
+    background-color: rgba(24, 24, 24, 0.95);
     border-radius: 15px;
     margin-bottom: 10px;
     padding: 10px;
@@ -368,7 +355,7 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.85);
-    z-index: 1;
+    z-index: 2;
 }
 
 .coloricon {
@@ -392,18 +379,19 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 8px 16px;
+    font-size: 12px;
+    padding: 4px 8px;
     background-color: #3b3b3b;
     border: 1px solid #2e2e2e;
     border-radius: 10px;
-    color: #333333;
+    color: white;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.5s ease;
 }
 
 .google-btn img {
-    width: 30px;
+    width: 20px;
     margin-right: 10px;
 }
 
@@ -619,7 +607,7 @@ a:link, a:visited {
     z-index: 5;
     font-size: 24px;
     cursor: pointer;
-    position: fixed;
+    position: flex;
     margin-left: 10px;
     color: white;
     transition: transform 0.3s ease;
