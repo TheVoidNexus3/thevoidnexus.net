@@ -209,9 +209,9 @@ body, html {
     min-height: 170px;
     width: 170px;
     height: 170px;
-    background-color: #997e33e1;
-    border: 1px solid #997e33e1;
-    box-shadow: 0 0 15px #997e33e1;
+    background-color: #00385e;
+    border: 3px solid #001e31;
+    box-shadow: 0 0 15px #001e31;
     transition: transform 0.1s ease-in-out;
 }
 
@@ -269,6 +269,8 @@ body, html {
 
 .container {
     display: flex;
+    position: sticky;
+    top: 0;
     justify-content: space-between;
     align-items: center;
     z-index: 1;
@@ -302,7 +304,7 @@ body, html {
   }
 
   .popup-container {
-    display: flex-row;
+    display: flex;
     flex-direction: column;
     align-items: center;
     padding: 40px;
@@ -461,7 +463,7 @@ body, html {
     display: none;
     border-radius: 50%;
     border: 3px rgba(24, 24, 24, 0.836) solid;
-    width: 4.5%;
+    width: 47px;
     margin-left: auto;
     cursor: pointer;
 }
@@ -582,15 +584,13 @@ body, html {
     cursor: pointer;
     user-select: text;
     transition: color 0.5s ease;
-    text-decoration: underline;
-    text-decoration-color: cyan;
 }
 
 .menu-icon {
     z-index: 5;
     font-size: 30px;
     cursor: pointer;
-    position: fixed;
+    position: flex;
     margin-left: 10px;
     color: white;
     transition: transform 0.3s ease;

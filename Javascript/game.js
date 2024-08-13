@@ -393,7 +393,12 @@ window.addEventListener("load", function() {
 })
 
 function openNav() {
-  document.getElementById("sidebar").style.width = "400px";
+  const sidebar = document.getElementById("sidebar");
+  if (window.innerWidth <= 768) {
+    sidebar.style.width = "80%";
+  } else {
+    sidebar.style.width = "400px";
+  }
   overlay.style.display = "flex";
   overlay.addEventListener("click", function() {
     closeNav();
@@ -406,7 +411,7 @@ function closeNav() {
 }
 
 document.getElementById("menuIcon").addEventListener("click", function() {
-  if (document.getElementById("sidebar").style.width === "400px") {
+  if (document.getElementById("sidebar").style.width === "400px" || document.getElementById("sidebar").style.width === "80%") {
       closeNav();
   } else {
       openNav();

@@ -35,44 +35,6 @@
 <div class="dynamic-background"></div>
 <div class="container">
   <div id="menuIcon" class="menu-icon">&#9776;</div>
-<div id="sidebar" class="sidebar">
-    <a class="closebtn" onclick="closeNav()">&times;</a>
-    <div class="menu-section">
-    <p class="menu-title" id="menu-projects">Other Projects</p>
-    <button onclick="redirect()" class="database" id="database">Database</button>
-    <button onclick="redirect2()" class="calculator" id="calculator">Calculator</button>
-  </div>
-  <div class="menu-section">
-    <p class="menu-appearance" id="menu-appearance">Appearance</p>
-    <img id="coloricon" class="coloricon" src="https://cdn-icons-png.flaticon.com/128/606/606795.png" alt="Toggle Darkmode/Lightmode">
-  </div>
-  <div class="menu-section">
-    <p class="menu-language" id="menu-language">Language</p>
-    <select class="language-select" id="language-select" onchange="setLanguage(this.value)">
-      <option class="lang-en" value="en">English</option>
-      <option value="de">German</option>
-      <option value="sv">Swedish</option>
-  </select>
-  </div>
-  <div class="menu-section">
-  <p class="menu-privacy" id="menu-other">Other</p>
-  <button onclick="redirect3()" class="privacy" id="menu-privacy">Privacy Policy</button>
-  <button onclick="redirect4()" class="privacy" id="menu-contribute">Contribute</button>
-  </div>
-  <div class="menu-section">
-  <p class="menu-developer" id="menu-developer">Developer</p>
-  <div class="developer">
-    <div class="developer-container">
-    <p class="developer-text">TheVoidNexus</p>
-    <span class="menu-verified" style="display: flex;">
-      <span class="menu-tooltip" id="menu-tooltip">Verified Account</span>
-    </span>
-  </div>
-  </div>
-  <button onclick="redirect5()" class="privacy">GitHub</button>
-  <button onclick="redirect6()" class="privacy">Discord</button>
-  </div>
-  </div>
     <h1 class="ClickerTitle">VoidClicker</h1>
     <div class="container2">
       <button id="google-login" class="google-btn" >
@@ -81,6 +43,45 @@
      </button>
             <img rel="preload" as="image" id="pfp" class="pfp" alt="">
     </div>
+</div>
+<div id="sidebar" class="sidebar">
+  <a class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="menu-section">
+  <p class="menu-title" id="menu-projects">Other Projects</p>
+  <button onclick="redirect()" class="database" id="database">Database</button>
+  <button onclick="redirect2()" class="calculator" id="calculator">Calculator</button>
+</div>
+<div class="menu-section">
+  <p class="menu-appearance" id="menu-appearance">Appearance</p>
+  <img id="coloricon" class="coloricon" src="https://cdn-icons-png.flaticon.com/128/606/606795.png" alt="Toggle Darkmode/Lightmode">
+</div>
+<div class="menu-section">
+  <p class="menu-language" id="menu-language">Language</p>
+  <select class="language-select" id="language-select" onchange="setLanguage(this.value)">
+    <option class="lang-en" value="en">English</option>
+    <option value="de">German</option>
+    <option value="sv">Swedish</option>
+</select>
+</div>
+<div class="menu-section">
+<p class="menu-privacy" id="menu-other">Other</p>
+<button onclick="redirect3()" class="privacy" id="menu-privacy">Privacy Policy</button>
+<button onclick="redirect4()" class="privacy" id="menu-contribute">Contribute</button>
+</div>
+<div class="menu-section">
+<p class="menu-developer" id="menu-developer">Developer</p>
+<div class="developer">
+  <div class="developer-container">
+  <p class="developer-text">TheVoidNexus</p>
+  <span class="menu-verified" style="display: flex;">
+    <span class="menu-tooltip" id="menu-tooltip">Verified Account</span>
+  </span>
+</div>
+</div>
+<button onclick="redirect5()" class="privacy">GitHub</button>
+<button onclick="redirect6()" class="privacy">Discord</button>
+</div>
+<br><br><br>
 </div>
 <div class="index-container">
     <button class="Index" onclick="toggleIndex()">Index</button>
@@ -101,6 +102,7 @@
 </div>
 <br> <br> <br>
 <button onclick="gameReset()" class="ResetButton" id="reset">Reset Progress</button>
+<br>
 <div class="popup" id="popup">
     <div class="popup-container">
     <img class="warning" src="https://cdn-icons-png.flaticon.com/512/752/752755.png">
